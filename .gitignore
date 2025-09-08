@@ -1,0 +1,22 @@
+# Visual Studio cache
+.vs/
+*.vscode/
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# User-specific files
+*.user
+*.suo
+
+# Logs
+*.log
+
+# Others
+*.dbmdl
+*.pdb

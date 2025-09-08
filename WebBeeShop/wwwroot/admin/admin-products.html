@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bee Shop Admin - Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #343a40;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            padding: 20px 0;
+        }
+
+            .sidebar h2 {
+                text-align: center;
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+            }
+
+            .sidebar a {
+                display: block;
+                color: white;
+                padding: 10px 20px;
+                text-decoration: none;
+            }
+
+                .sidebar a:hover, .sidebar a.active {
+                    background: #495057;
+                }
+
+        .content {
+            margin-left: 250px;
+            padding: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #212529;
+            color: white;
+            position: fixed;
+            left: 250px;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>🐝 Admin</h2>
+        <a href="admin-dashboard.html">Dashboard</a>
+        <a href="admin-products.html" class="active">Products</a>
+        <a href="admin-categories.html">Categories</a>
+        <a href="admin-orders.html">Orders</a>
+        <a href="admin-users.html">Users</a>
+        <a href="../index.html">⬅ Back to Shop</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Manage Products</h1>
+
+        <!-- Form Add Product -->
+        <form class="row g-3 mb-5">
+            <div class="col-md-4">
+                <label class="form-label">Product Name</label>
+                <input type="text" class="form-control" placeholder="Enter product">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Price</label>
+                <input type="number" class="form-control" placeholder="Enter price">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Category</label>
+                <select class="form-select">
+                    <option>Beverages</option>
+                    <option>Cosmetics</option>
+                    <option>Food</option>
+                </select>
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+                <button type="submit" class="btn btn-success w-100">Add</button>
+            </div>
+        </form>
+
+        <!-- Table Products -->
+        <div class="table-responsive">
+            <table class="table table-bordered align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Honey Bottle</td>
+                        <td>$10</td>
+                        <td>Beverages</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm">Edit</button>
+                            <button class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Bee Wax Candle</td>
+                        <td>$8</td>
+                        <td>Cosmetics</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm">Edit</button>
+                            <button class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Bee Shop Admin. All rights reserved.</p>
+    </footer>
+</body>
+</html>
