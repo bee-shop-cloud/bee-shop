@@ -1,0 +1,908 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sourcing & Quality — Bee Shop</title>
+    <meta name="description" content="Nguồn gốc nông trại, quy trình chế biến, kiểm nghiệm COA, tiêu chuẩn chất lượng và truy xuất lô hàng của Bee Shop." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add('io-init');</script>
+    <style>
+        :root {
+            --bee: #f7b500;
+            --ink: #111;
+            --muted: #6b7280
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+            color: #1f2937;
+            background: #fff
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        /* Topbar (giống index) */
+        .topbar {
+            background: #111;
+            color: #e5e7eb;
+            font-size: 13px
+        }
+
+            .topbar .wrap {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 36px
+            }
+
+            .topbar a {
+                color: #fff
+            }
+
+        /* Header (giống index) */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            background: var(--bee);
+            box-shadow: 0 2px 10px rgba(0,0,0,.06)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px
+        }
+
+        .brand {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 800
+        }
+
+            .brand .logo {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                background: linear-gradient(135deg,#ffd54f,#ffeb3b)
+            }
+
+        .menu {
+            display: flex;
+            gap: 18px
+        }
+
+            .menu a {
+                padding: 10px 12px;
+                border-radius: 10px;
+                font-weight: 700;
+                opacity: .92
+            }
+
+                .menu a:hover {
+                    background: rgba(255,255,255,.35)
+                }
+
+                .menu a.active {
+                    background: rgba(255,255,255,.35)
+                }
+
+        /* Subnav xanh lá + gạch dưới vàng */
+        .subnav {
+            background: #0f7f75;
+            position: sticky;
+            top: 64px; /* dính dưới header 64px */
+            z-index: 55;
+        }
+
+        .sub {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            height: 56px;
+            overflow-x: auto
+        }
+
+            .sub a, .sub a:visited {
+                color: #fff;
+                opacity: .95;
+                font-weight: 700;
+                white-space: nowrap
+            }
+
+                .sub a.current {
+                    border-bottom: 3px solid var(--bee);
+                    padding-bottom: 3px;
+                    border-radius: 0;
+                    background: transparent
+                }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(180deg,var(--bee) 0%, #ffe699 100%);
+            padding: 68px 0 56px
+        }
+
+            .hero .wrap {
+                display: grid;
+                grid-template-columns: 1.1fr .9fr;
+                gap: 24px;
+                align-items: center
+            }
+
+        .badge {
+            display: inline-block;
+            background: #111;
+            color: #fff;
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 12px;
+            margin-bottom: 8px
+        }
+
+        .lead {
+            color: #374151
+        }
+
+        .hero-fig {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0,0,0,.1)
+        }
+
+        .cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .h320 {
+            height: 320px
+        }
+
+        /* Sections */
+        section {
+            scroll-margin-top: 140px
+        }
+        /* tránh bị che bởi header+subnav */
+        .section {
+            padding: 64px 0
+        }
+
+        .soft {
+            background: #fff8e6
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px
+        }
+
+        .grid-2 {
+            grid-template-columns: 1fr 1fr
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3,1fr)
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4,1fr)
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,.06)
+        }
+
+            .card .body {
+                padding: 16px
+            }
+
+        .kpi {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            gap: 12px
+        }
+
+            .kpi .item {
+                border: 1px solid #eee;
+                border-radius: 14px;
+                padding: 12px;
+                background: #fff;
+                text-align: center
+            }
+
+            .kpi .num {
+                font-weight: 800;
+                font-size: 20px
+            }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .steps {
+            counter-reset: stp;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .step {
+            border: 1px solid #eee;
+            border-radius: 14px;
+            padding: 14px 14px 14px 58px;
+            background: #fff;
+            position: relative
+        }
+
+            .step::before {
+                counter-increment: stp;
+                content: counter(stp);
+                position: absolute;
+                left: 14px;
+                top: 14px;
+                width: 32px;
+                height: 32px;
+                border-radius: 999px;
+                background: #111;
+                color: #fff;
+                display: grid;
+                place-items: center;
+                font-weight: 800
+            }
+
+        .faq {
+            border: 1px solid #eee;
+            border-radius: 14px;
+            overflow: hidden
+        }
+
+            .faq .item {
+                border-top: 1px solid #eee
+            }
+
+                .faq .item:first-child {
+                    border-top: 0
+                }
+
+        .acc-btn {
+            width: 100%;
+            text-align: left;
+            background: #fff;
+            padding: 16px;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        .acc-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease;
+            background: #fff
+        }
+
+            .acc-panel .inner {
+                padding: 0 16px 16px
+            }
+
+        .trace {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            align-items: center
+        }
+
+        .input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #111;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-weight: 700
+        }
+
+            .btn.outline {
+                background: #fff;
+                color: #111;
+                border: 1px solid #e5e7eb
+            }
+
+        .stats {
+            background: var(--bee);
+            color: #111;
+            padding: 26px 0;
+            margin: 40px 0
+        }
+
+            .stats .row {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: 12px;
+                text-align: center
+            }
+
+        .num {
+            font-size: 30px;
+            font-weight: 800
+        }
+
+        /* Footer */
+        .footer {
+            background: #121a18;
+            color: #e5e7eb;
+            padding: 28px 0;
+            margin-top: 60px
+        }
+
+        .ft-cols {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr 1fr;
+            gap: 28px
+        }
+
+        .ft-logo {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 10px
+        }
+
+        .bee-dot {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,#ffd54f,#ffb300)
+        }
+
+        .ft-h {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #fff
+        }
+
+        .ft-links {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+            .ft-links li {
+                margin: 8px 0
+            }
+
+            .ft-links a {
+                color: #e5e7eb
+            }
+
+                .ft-links a:hover {
+                    color: #fff;
+                    text-decoration: underline
+                }
+
+        .ft-copy {
+            border-top: 1px solid rgba(255,255,255,.12);
+            margin-top: 18px;
+            padding-top: 14px;
+            font-size: 13px;
+            color: #cbd5e1;
+            text-align: center
+        }
+
+        #backTop {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            display: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 999px;
+            background: #0fb8ae;
+            color: #fff;
+            font-weight: 800;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,.18)
+        }
+
+            #backTop::before {
+                content: "↑";
+                font-size: 18px
+            }
+
+        /* reveal */
+        .reveal-io {
+            opacity: 1;
+            transform: none
+        }
+
+        .io-init .reveal-io {
+            opacity: 0;
+            transform: translateY(18px) scale(.98);
+            transition: opacity .6s ease,transform .6s ease
+        }
+
+            .io-init .reveal-io.show {
+                opacity: 1;
+                transform: none
+            }
+
+        .reveal-delay-1 {
+            transition-delay: .1s
+        }
+
+        .reveal-delay-2 {
+            transition-delay: .2s
+        }
+
+        .reveal-delay-3 {
+            transition-delay: .3s
+        }
+
+        @media (max-width:980px) {
+            .hero .wrap, .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr
+            }
+
+            .kpi {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .steps {
+                grid-template-columns: 1fr
+            }
+
+            .stats .row {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .ft-cols {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media (max-width:640px) {
+            .kpi {
+                grid-template-columns: 1fr
+            }
+
+            .ft-cols {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container wrap">
+            <div>📦 Giao hàng toàn quốc — Đổi trả trong 7 ngày</div>
+            <div><a href="index.html#contact">Liên hệ tư vấn</a></div>
+        </div>
+    </div>
+
+    <!-- Header (đồng bộ index) -->
+    <header class="header">
+        <div class="container nav">
+            <a class="brand" href="index.html" aria-label="Bee Shop — Trang chủ">
+                <img class="logo"
+                     src="assets/img/logo.jpg"
+                     alt="Bee Shop"
+                     width="32" height="32"
+                     onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,
+                <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22>
+                    <rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22#ffd54f%22 />
+                    <path d=%27M7 16h18M11 10l10 12M21 10l-10 12%27 stroke=%22#111%22 stroke-width=%223%22 stroke-linecap=%22round%22 />
+                </svg>';">
+                <span class="brand-name">Bee Shop</span>
+            </a>
+            <nav class="menu">
+                <a href="index.html?ctx=home">Trang chủ</a>
+                <a href="products.html?ctx=products">Sản phẩm</a>
+                <a href="about-shop.html">About Shop</a>
+                <a href="sourcing-quality.html" class="active">Sourcing & Quality</a>
+                <a href="branches.html">Branches</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SUBNAV xanh lá -->
+    <div class="subnav">
+        <div class="container sub" id="subnav">
+            <a href="#origin">Nguồn gốc</a>
+            <a href="#process">Quy trình</a>
+            <a href="#coa">Chứng nhận / COA</a>
+            <a href="#storage">Đóng gói & an toàn</a>
+            <a href="#trace">Tra mã LOT</a>
+            <a href="#faq">FAQ</a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="wrap">
+                <div class="reveal-io">
+                    <span class="badge">SOURCING & QUALITY</span>
+                    <h1>Minh bạch nguồn gốc, tiêu chuẩn chất lượng nghiêm ngặt</h1>
+                    <p class="lead">Bee Shop hợp tác các nông trại uy tín, kiểm nghiệm định kỳ (COA) và truy xuất lô hàng rõ ràng để bạn yên tâm sử dụng.</p>
+                    <div class="grid" style="grid-template-columns:auto auto;gap:10px;margin-top:10px">
+                        <a class="btn" href="#coa">Xem các chỉ số COA</a>
+                        <a class="btn outline" href="#trace">Truy xuất lô hàng</a>
+                    </div>
+                </div>
+                <div class="hero-fig reveal-io reveal-delay-1">
+                    <img class="cover h320" src="assets/img/quality-hero.jpg"
+                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1400 800%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23fff3d1/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%23936f00%22 font-size=%2238%22 font-family=%22Inter%22>Bee Shop • Sourcing & Quality</text></svg>'" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NGUỒN GỐC -->
+    <section id="origin" class="section">
+        <div class="container grid grid-2">
+            <div class="card reveal-io">
+                <img class="cover" style="aspect-ratio:16/10;background:#f6f6f6" src="assets/img/farm.jpg"
+                     onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 500%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="Partner farms">
+                <div class="body">
+                    <h2 style="margin:6px 0 8px">Nguồn gốc bền vững</h2>
+                    <ul>
+                        <li>Hợp tác <b>nông trại ong</b> vùng hoa nguyên liệu ổn định (cúc quỳ, cà phê, cao su…)</li>
+                        <li>Ưu tiên <b>thực hành thân thiện</b> với đàn ong & hệ sinh thái</li>
+                        <li>Minh bạch mùa vụ, khu vực lấy mật & lộ trình vận chuyển</li>
+                        <li>Chính sách <b>fair-trade</b> & hỗ trợ sinh kế đối tác</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card reveal-io">
+                <div class="body">
+                    <h2 style="margin:0 0 8px">Các chỉ tiêu cam kết</h2>
+                    <p class="muted" style="margin:0 0 12px">Tùy mùa vụ có dao động nhỏ; chúng tôi kiểm nghiệm định kỳ và công bố COA.</p>
+                    <div class="kpi">
+                        <div class="item"><div class="num">&lt; 20%</div><div>Độ ẩm</div></div>
+                        <div class="item"><div class="num">&lt; 40</div><div>HMF (mg/kg)</div></div>
+                        <div class="item"><div class="num">≥ 8</div><div>Diastase</div></div>
+                        <div class="item"><div class="num">ND</div><div>Kháng sinh</div></div>
+                        <div class="item"><div class="num">65–80%</div><div>Đường khử</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUY TRÌNH -->
+    <section id="process" class="section soft">
+        <div class="container">
+            <h2 class="reveal-io">Quy trình từ tổ ong tới chai mật</h2>
+            <div class="steps reveal-io">
+                <div class="step"><b>Thu hoạch chọn lọc:</b> lấy cầu mật đạt độ chín, hạn chế lẫn sáp/phấn.</div>
+                <div class="step"><b>Lọc & lắng:</b> lọc 2 cấp, lắng tự nhiên; <i>không</i> gia nhiệt quá ngưỡng dinh dưỡng.</div>
+                <div class="step"><b>Kiểm tra nhanh:</b> độ ẩm, màu, mùi vị; lấy mẫu gửi phòng lab.</div>
+                <div class="step"><b>Đóng chai:</b> chai thủy tinh thực phẩm, nắp niêm; in <b>LOT/EXP</b>.</div>
+                <div class="step"><b>Lưu kho:</b> nhiệt độ &lt; 25°C, tránh nắng; FIFO theo lô sản xuất.</div>
+                <div class="step"><b>Phát hành COA:</b> đính kèm khi xuất kho; công bố trên website.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COA / CHỨNG NHẬN -->
+    <section id="coa" class="section">
+        <div class="container grid grid-2">
+            <div class="card reveal-io">
+                <div class="body">
+                    <h2 style="margin-top:0">Kiểm nghiệm & Chứng nhận (COA)</h2>
+                    <p>Bee Shop kiểm nghiệm định kỳ các chỉ số: <b>Moisture, HMF, Diastase, Reducing Sugars, Sucrose, Antibiotics</b>… tại phòng thí nghiệm đạt chuẩn.</p>
+                    <ul>
+                        <li>Phương pháp theo tiêu chuẩn AOAC/ISO tương ứng</li>
+                        <li>COA theo <b>mã LOT</b>, tải bản PDF cho từng lô</li>
+                        <li>Xuất xứ nông trại & tuyến vận chuyển được ghi nhận</li>
+                    </ul>
+                    <div class="grid" style="grid-template-columns:auto auto;gap:10px;margin-top:10px">
+                        <a class="btn" href="certificates.html">Xem chứng nhận</a>
+                        <a class="btn outline" href="#trace">Tra mã LOT</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card reveal-io">
+                <img class="cover" style="aspect-ratio:16/10;background:#f6f6f6" src="assets/img/kiemnghiem.jpg"
+                     onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 500%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="Lab">
+                <div class="body">
+                    <h3 style="margin:6px 0 8px">Bảng chỉ số tham chiếu</h3>
+                    <div class="grid grid-2">
+                        <div><b>Độ ẩm</b><br><span class="muted">&lt;= 20%</span></div>
+                        <div><b>HMF</b><br><span class="muted">&lt;= 40 mg/kg</span></div>
+                        <div><b>Diastase</b><br><span class="muted">&gt;= 8</span></div>
+                        <div><b>Kháng sinh</b><br><span class="muted">Không phát hiện (ND)</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ĐÓNG GÓI & AN TOÀN -->
+    <section id="storage" class="section soft">
+        <div class="container grid grid-3">
+            <div class="card reveal-io">
+                <div class="body">
+                    <h2 style="margin:0 0 8px">Đóng gói an toàn</h2>
+                    <ul>
+                        <li>Chai thủy tinh thực phẩm, nắp chống rò + seal</li>
+                        <li>In phun <b>LOT/EXP</b> rõ ràng trên thân chai</li>
+                        <li>Hộp carton dày, chống sốc khi vận chuyển</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card reveal-io">
+                <div class="body">
+                    <h2 style="margin:0 0 8px">Lưu ý sử dụng</h2>
+                    <ul>
+                        <li>Không dùng cho trẻ <b>dưới 12 tháng</b></li>
+                        <li>Người dị ứng phấn hoa cần thử lượng nhỏ</li>
+                        <li>Bảo quản nơi khô ráo, thoáng mát (&lt; 25°C)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card reveal-io">
+                <div class="body">
+                    <h2 style="margin:0 0 8px">Mẹo bảo quản</h2>
+                    <ul>
+                        <li>Đậy kín nắp sau khi dùng, tránh ánh nắng</li>
+                        <li>Kết tinh là hiện tượng <b>tự nhiên</b> của mật ong</li>
+                        <li>Ngâm ấm ~40°C để mật tan kết tinh (không đun sôi)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUY XUẤT LÔ HÀNG -->
+    <section id="trace" class="section">
+        <div class="container">
+            <h2 class="reveal-io">Truy xuất lô hàng (LOT Trace)</h2>
+            <p class="muted reveal-io" style="margin-top:-4px">Nhập mã LOT in trên thân chai (ví dụ: <code>LOT: 2504-HN-A1</code>).</p>
+            <div class="card reveal-io">
+                <div class="body">
+                    <div class="trace">
+                        <input id="lotInput" class="input" placeholder="Nhập mã LOT, ví dụ: 2504-HN-A1">
+                        <button id="lotBtn" class="btn">Tra cứu</button>
+                    </div>
+                    <div id="lotResult" style="margin-top:14px;display:none">
+                        <div><b>Kết quả:</b></div>
+                        <div id="lotData" class="muted"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+        <div class="container grid grid-2">
+            <div>
+                <h2 class="reveal-io">Câu hỏi về chất lượng</h2>
+                <div class="faq reveal-io">
+                    <div class="item">
+                        <button class="acc-btn">Mật ong kết tinh có phải giả?</button>
+                        <div class="acc-panel"><div class="inner">Không. Kết tinh là hiện tượng tự nhiên khi nhiệt độ thấp hoặc tỷ lệ đường thay đổi theo mùa vụ.</div></div>
+                    </div>
+                    <div class="item">
+                        <button class="acc-btn">Bee Shop có dùng nhiệt cao?</button>
+                        <div class="acc-panel"><div class="inner">Không. Chúng tôi chỉ xử lý ở mức an toàn để không làm suy giảm enzyme (diastase) và tăng HMF.</div></div>
+                    </div>
+                    <div class="item">
+                        <button class="acc-btn">COA có áp dụng cho mọi lô?</button>
+                        <div class="acc-panel"><div class="inner">Mỗi lô có COA riêng. Bạn có thể tra cứu theo mã LOT để xem COA tương ứng.</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card reveal-io">
+                <div class="body">
+                    <h3 style="margin-top:0">Bạn cần tư vấn thêm?</h3>
+                    <p class="muted">Liên hệ đội ngũ Bee Shop để nhận file chứng nhận chi tiết hoặc hướng dẫn chuyên sâu.</p>
+                    <div class="grid" style="grid-template-columns:1fr 1fr;gap:10px">
+                        <a class="btn" href="tel:0909123456">📞 0909 123 456</a>
+                        <a class="btn outline" href="index.html#contact">✉️ Liên hệ ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="container">
+            <div class="row">
+                <div class="reveal-io"><div class="num">10+</div>Chỉ tiêu kiểm nghiệm</div>
+                <div class="reveal-io reveal-delay-1"><div class="num">100%</div>COA cho từng lô hàng</div>
+                <div class="reveal-io reveal-delay-2"><div class="num">0</div>Phát hiện kháng sinh</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="ft-cols">
+                <div>
+                    <a class="brand" href="index.html" aria-label="Bee Shop — Trang chủ">
+                        <img class="logo"
+                             src="assets/img/logo.jpg"
+                             alt="Bee Shop"
+                             width="32" height="32"
+                             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,
+                        <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22>
+                            <rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22#ffd54f%22 />
+                            <path d=%27M7 16h18M11 10l10 12M21 10l-10 12%27 stroke=%22#111%22 stroke-width=%223%22 stroke-linecap=%22round%22 />
+                        </svg>';">
+                        <span class="brand-name">Bee Shop</span>
+                    </a>
+                    <p class="ft-slogan">Ngọt ngào từ thiên nhiên – Dành cho bạn sự lựa chọn tốt nhất.</p>
+                    <div class="ft-line"></div>
+                    <div class="ft-follow">FOLLOW BEE SHOP</div>
+                    <div class="ft-social">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.6v-2.9h2.8V9a4 4 0 0 1 4.3-4.4c1.2 0 2.5.2 2.5.2v2.7h-1.4c-1.4 0-1.8.9-1.8 1.8v2.1h3.1l-.5 2.9h-2.6v7A10 10 0 0 0 22 12z" /></svg>
+                        </a>
+                        <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21 8.1a7.4 7.4 0 0 1-4-.9v6.6a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.3a3 3 0 1 0 2 2.8V2h3a7.4 7.4 0 0 0 4 3v3.1z" /></svg>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M23.5 7.5a3 3 0 0 0-2.1-2.1C19.5 5 12 5 12 5s-7.5 0-9.4.4A3 3 0 0 0 .5 7.5 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 4.5 3 3 0 0 0 2.1 2.1C4.5 19 12 19 12 19s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1c.3-1.5.5-3 .5-4.5s-.2-3-.5-4.5zM9.5 15.1V8.9l5.8 3.1-5.8 3.1z" /></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="ft-h">VỀ CHÚNG TÔI</h3>
+                    <ul class="ft-links">
+                        <li><a href="index.html#about">Giới thiệu</a></li>
+                        <li><a href="terms.html">Điều khoản</a></li>
+                        <li><a href="privacy.html">Bảo mật</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-h">SẢN PHẨM</h3>
+                    <ul class="ft-links">
+                        <li><a href="products.html#honey">Mật ong nguyên chất</a></li>
+                        <li><a href="products.html#wax">Nến sáp ong</a></li>
+                        <li><a href="products.html#royal">Sữa ong chúa</a></li>
+                        <li><a href="products.html#pollen">Phấn hoa ong</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-h">LIÊN HỆ</h3>
+                    <ul class="ft-links">
+                        <li>📞 <a href="tel:0909123456">0909 123 456</a></li>
+                        <li>✉️ <a href="mailto:contact@beeshop.com">contact@beeshop.com</a></li>
+                        <li>📍 <a href="index.html#contact">Q1, Q7, Thủ Đức</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ft-copy">© 2025 Bee Shop. All rights reserved. • Powered by <a href="#">Bee Shop Team</a></div>
+        </div>
+    </footer>
+
+
+    <button id="backTop" aria-label="Back to top"></button>
+
+    <script>
+        // highlight theo file hiện tại (fallback)
+        (function () {
+            const file = (location.pathname.split('/').pop() || 'index.html');
+            document.querySelectorAll('.menu a').forEach(a => {
+                const href = (a.getAttribute('href') || '').split('#')[0];
+                if (href === file) a.classList.add('active');
+            });
+        })();
+
+        // reveal on scroll
+        const io = new IntersectionObserver((es) => {
+            es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } })
+        }, { threshold: .15 });
+        document.querySelectorAll('.reveal-io').forEach(el => io.observe(el));
+
+        // accordion
+        document.querySelectorAll('.acc-btn').forEach(b => {
+            b.addEventListener('click', () => {
+                const p = b.nextElementSibling, open = p.style.maxHeight;
+                document.querySelectorAll('.acc-panel').forEach(x => x.style.maxHeight = null);
+                p.style.maxHeight = open ? null : (p.scrollHeight + 'px');
+            });
+        });
+
+        // trace LOT (demo)
+        const DB = {
+            "2504-HN-A1": { farm: "Đắk Lắk (hoa cà phê)", date: "04/2025", moisture: "18.5%", hmf: "12 mg/kg", diastase: "12", status: "Đạt" },
+            "2503-GL-B2": { farm: "Gia Lai (cao su)", date: "03/2025", moisture: "19.2%", hmf: "15 mg/kg", diastase: "10", status: "Đạt" }
+        };
+        const lotInput = document.getElementById('lotInput');
+        const lotBtn = document.getElementById('lotBtn');
+        const lotResult = document.getElementById('lotResult');
+        const lotData = document.getElementById('lotData');
+        lotBtn.addEventListener('click', () => {
+            const k = (lotInput.value || '').trim().toUpperCase();
+            const r = DB[k];
+            lotResult.style.display = 'block';
+            lotData.innerHTML = r
+                ? `LOT <b>${k}</b> — Nguồn: ${r.farm} • Sản xuất: ${r.date} • Moisture: ${r.moisture} • HMF: ${r.hmf} • Diastase: ${r.diastase} • Trạng thái: <b>${r.status}</b>.`
+                : `Không tìm thấy LOT <b>${k || '—'}</b>. Vui lòng kiểm tra lại ký tự hoặc liên hệ Bee Shop để được hỗ trợ.`;
+        });
+
+        // back to top
+        const backTop = document.getElementById('backTop');
+        window.addEventListener('scroll', () => { backTop.style.display = window.scrollY > 600 ? 'inline-flex' : 'none'; });
+        backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // scroll-spy cho subnav
+        const subLinks = [...document.querySelectorAll('#subnav a')];
+
+        // seed trạng thái ban đầu để có gạch vàng ngay khi load
+        if (subLinks.length) {
+            // nếu có hash hợp lệ thì active theo hash, không thì chọn link đầu
+            const initial = location.hash && document.querySelector(location.hash)
+                ? location.hash
+                : subLinks[0].getAttribute('href');
+            subLinks.forEach(a => a.classList.toggle('current', a.getAttribute('href') === initial));
+        }
+
+        const targets = subLinks
+            .map(a => document.querySelector(a.getAttribute('href')))
+            .filter(Boolean);
+
+        const spy = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    const id = '#' + e.target.id;
+                    subLinks.forEach(a => a.classList.toggle('current', a.getAttribute('href') === id));
+                }
+            });
+        }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+        targets.forEach(s => spy.observe(s));
+
+        // nếu truy cập bằng hash, sau khi DOM ready cuộn mượt đến đúng section
+        if (location.hash) {
+            setTimeout(() => document.querySelector(location.hash)?.scrollIntoView({ behavior: 'smooth' }), 60);
+        }
+    </script>
+</body>
+</html>

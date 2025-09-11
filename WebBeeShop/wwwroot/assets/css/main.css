@@ -1,0 +1,504 @@
+﻿:root {
+    --bee: #f4b400;
+    --bee-dark: #e0a200;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --bg: #fffaf0;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+    color: var(--text);
+    background: #fff
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bee);
+    box-shadow: 0 2px 10px rgba(0,0,0,.06)
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px
+}
+
+.brand {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 800
+}
+
+    .brand .logo {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg,#ffd54f,#ffeb3b)
+    }
+
+.nav a {
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    opacity: .92
+}
+
+    .nav a:hover {
+        background: rgba(255,255,255,.35)
+    }
+
+.hero {
+    background: linear-gradient(180deg,var(--bee) 0%, #fff2bf 100%);
+    padding: 60px 0
+}
+
+    .hero .wrap {
+        display: grid;
+        grid-template-columns: 1.2fr .8fr;
+        gap: 32px;
+        align-items: center
+    }
+
+    .hero h1 {
+        font-size: 44px;
+        margin: 0 0 12px
+    }
+
+    .hero p {
+        font-size: 18px;
+        color: #3a3a3a;
+        margin: 0 0 18px
+    }
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #111;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    box-shadow: 0 8px 16px rgba(0,0,0,.15)
+}
+
+    .btn:hover {
+        transform: translateY(-2px)
+    }
+
+.badge {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-bottom: 8px
+}
+
+.grid {
+    display: grid;
+    gap: 20px
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3,1fr)
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4,1fr)
+}
+
+.section {
+    padding: 64px 0
+}
+
+    .section h2 {
+        font-size: 34px;
+        margin: 0 0 8px
+    }
+
+    .section p.lead {
+        color: var(--muted);
+        margin: 0 0 22px
+    }
+
+.card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,.06)
+}
+
+    .card .cover {
+        aspect-ratio: 16/10;
+        background: #f6f7fb;
+        object-fit: cover;
+        width: 100%
+    }
+
+    .card .body {
+        padding: 16px
+    }
+
+.price {
+    font-weight: 800;
+    color: #0a7b34
+}
+
+.cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap
+}
+
+.link {
+    font-weight: 700;
+    color: #0a7b34
+}
+
+.kicker {
+    color: #92400e;
+    font-weight: 700
+}
+/* Accordion */
+.accordion {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #eee
+}
+
+    .accordion .item {
+        border-top: 1px solid #eee
+    }
+
+        .accordion .item:first-child {
+            border-top: 0
+        }
+
+.acc-btn {
+    width: 100%;
+    text-align: left;
+    background: #fff;
+    padding: 18px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.acc-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    background: #fff
+}
+
+    .acc-panel .inner {
+        padding: 0 18px 18px;
+        color: #374151
+    }
+/* Contact */
+.contact-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px
+}
+
+.input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb
+}
+
+.textarea {
+    min-height: 120px
+}
+
+.map {
+    width: 100%;
+    height: 260px;
+    border: 0;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06)
+}
+
+.branch {
+    padding: 14px;
+    border: 1px solid #eee;
+    border-radius: 12px
+}
+
+.footer {
+    background: #111;
+    color: #fff;
+    padding: 24px 0;
+    margin-top: 60px
+}
+
+    .footer .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap
+    }
+
+small, .muted {
+    color: #9ca3af
+}
+/* Reveal effect */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all .6s ease
+}
+
+    .reveal.revealed {
+        opacity: 1;
+        transform: none
+    }
+/* Product detail */
+.proddetail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px
+}
+
+    .proddetail .img {
+        border-radius: 18px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.08);
+        width: 100%
+    }
+
+.specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px
+}
+
+    .specs .spec {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 12px
+    }
+
+blockquote {
+    background: #fff8d6;
+    border-left: 6px solid var(--bee-dark);
+    padding: 12px 14px;
+    border-radius: 8px
+}
+/* Blog */
+.post {
+    max-width: 860px;
+    margin: 0 auto
+}
+
+    .post h1 {
+        font-size: 40px
+    }
+
+    .post img {
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.08)
+    }
+
+    .post .meta {
+        color: #6b7280;
+        margin: 10px 0 24px
+    }
+/* Responsive */
+@media (max-width: 980px) {
+    .grid-3 {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .grid-4 {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .hero .wrap {
+        grid-template-columns: 1fr
+    }
+
+    .contact-card {
+        grid-template-columns: 1fr
+    }
+
+    .proddetail {
+        grid-template-columns: 1fr
+    }
+    /* --- Patches chống lỗi section --- */
+    section {
+        scroll-margin-top: 84px;
+    }
+    /* offset khi bấm #anchor vì header sticky */
+    .section {
+        padding: 64px 0;
+        background: transparent;
+    }
+
+        .section.soft {
+            background: #fff8e6;
+        }
+    /* nền kem nhẹ cho section kiểu “khối” */
+    .hero img, .kv-card, .why .pics img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .card {
+        overflow: hidden;
+    }
+    /* tránh ảnh tràn góc card */
+
+}
+/* --- Patches ảnh/section cho Bee Shop --- */
+section {
+    scroll-margin-top: 84px;
+}
+
+.section {
+    padding: 64px 0;
+    background: transparent;
+}
+
+    .section.soft {
+        background: #fff8e6;
+    }
+
+.card {
+    overflow: hidden;
+}
+/* tránh ảnh lòi góc */
+.hero img, .kv-card {
+    width: 100%;
+    display: block
+}
+
+/* Ảnh giới hạn chiều cao + cover */
+.cover-img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: inherit
+}
+
+    .cover-img.cap-340 {
+        height: 340px
+    }
+    /* Hero */
+    .cover-img.cap-300 {
+        height: 300px
+    }
+    /* Vision/Mission/Core values */
+    .cover-img.cap-280 {
+        height: 280px
+    }
+    /* FAQ image */
+    .cover-img.cap-180 {
+        height: 180px
+    }
+/* Ảnh lưới nhỏ (Why) */
+
+/* Card product đã có aspect-ratio, thêm fallback chiều cao tối đa */
+.card .cover {
+    max-height: 220px;
+    object-fit: cover
+}
+
+/* Lưới hình “Tại sao chọn” */
+.why {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 22px;
+    align-items: center
+}
+
+    .why .pics {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px
+    }
+
+@media (max-width:980px) {
+    .why {
+        grid-template-columns: 1fr
+    }
+    /* Ảnh cục bộ & cắt khung để không phình section */
+    .img-cap {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        border-radius: inherit;
+    }
+
+    .h-340 {
+        height: 340px;
+    }
+    /* hero */
+    .h-300 {
+        height: 300px;
+    }
+    /* vision/mission/values */
+    .h-240 {
+        height: 240px;
+    }
+    /* ảnh FAQ */
+    .h-180 {
+        height: 180px;
+    }
+    /* lưới "Tại sao chọn" */
+
+    .hero-figure, .kv-card {
+        overflow: hidden;
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+
+    .faq-grid > img, .why .pics img {
+        border-radius: 14px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    }
+
+    /* Card sản phẩm: trần chiều cao ảnh để không vỡ khung */
+    .card .cover {
+        max-height: 220px;
+        object-fit: cover;
+    }
+
+    /* Khi ảnh lỗi -> dùng placeholder cho đẹp (tùy chọn) */
+    img[data-fallback] {
+        background: #f2f2f2;
+    }
+   
+
+}

@@ -1,0 +1,490 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bài viết • Bee Shop Blog</title>
+    <meta name="description" content="Đọc bài viết trên Bee Shop Blog: hướng dẫn, công thức, hậu trường. Nội dung chi tiết, nhiều ảnh.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bee: #f7b500;
+            --bee2: #fff4c2;
+            --ink: #111;
+            --muted: #6b7280;
+            --line: #e5e7eb
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+            color: #1f2937
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--bee);
+            box-shadow: 0 2px 10px rgba(0,0,0,.06)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        .brand {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 800
+        }
+
+            .brand .logo {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                background: linear-gradient(135deg,#ffd54f,#ffeb3b)
+            }
+
+        .menu a {
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-weight: 700
+        }
+
+            .menu a:hover, .menu a.active {
+                background: rgba(255,255,255,.35)
+            }
+
+        .wrap {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 28px 20px 56px
+        }
+
+        .meta {
+            color: #6b7280;
+            font-size: 14px
+        }
+
+        .hero {
+            background: linear-gradient(180deg,var(--bee) 0%, var(--bee2) 100%);
+            padding: 28px 0;
+            margin-bottom: 8px
+        }
+
+            .hero .inner {
+                max-width: 860px;
+                margin: 0 auto;
+                padding: 0 20px
+            }
+
+        .cover {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            background: #f6f6f6;
+            border: 1px solid var(--line);
+            border-radius: 12px
+        }
+
+        .article {
+            margin-top: 14px;
+            line-height: 1.8;
+            font-size: 17px
+        }
+
+            .article h2, .article h3 {
+                margin: 22px 0 10px
+            }
+
+            .article p {
+                margin: 10px 0
+            }
+
+            .article ul, .article ol {
+                padding-left: 22px
+            }
+
+            .article figure {
+                margin: 16px 0;
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                overflow: hidden;
+                background: #fff
+            }
+
+                .article figure img {
+                    display: block;
+                    width: 100%;
+                    height: auto
+                }
+
+            .article figcaption {
+                font-size: 14px;
+                color: var(--muted);
+                padding: 8px 10px;
+                background: #fafafa
+            }
+
+        .callout {
+            border-left: 4px solid var(--bee);
+            background: #fffaf0;
+            padding: 12px 14px;
+            border-radius: 8px;
+            margin: 14px 0
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--line);
+            margin: 22px 0
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            border: 1px solid var(--line)
+        }
+
+            .table th, .table td {
+                border: 1px solid var(--line);
+                padding: 10px;
+                text-align: left
+            }
+
+        .small {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        blockquote {
+            margin: 12px 0;
+            padding: 10px 14px;
+            border-left: 4px solid #eab308;
+            background: #fffbeb;
+            border-radius: 6px
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav">
+            <a class="brand" href="index.html" aria-label="Bee Shop — Trang chủ">
+                <img class="logo"
+                     src="assets/img/logo.jpg"
+                     alt="Bee Shop"
+                     width="32" height="32"
+                     onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,
+                <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22>
+                    <rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22#ffd54f%22 />
+                    <path d=%27M7 16h18M11 10l10 12M21 10l-10 12%27 stroke=%22#111%22 stroke-width=%223%22 stroke-linecap=%22round%22 />
+                </svg>';">
+                <span class="brand-name">Bee Shop</span>
+            </a>
+            <nav class="menu"><a class="active" href="blog.html">← Về danh sách</a></nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="inner">
+            <img id="img" class="cover" src="" alt="">
+            <h1 id="title" style="margin:10px 0 6px">Bài viết</h1>
+            <div class="meta" id="meta">--/--/---- • 0 phút đọc • Danh mục</div>
+        </div>
+    </section>
+
+    <main class="wrap">
+        <article id="content" class="article"></article>
+        <p class="small">*Thông tin trên blog chỉ mang tính tham khảo. Không thay thế tư vấn y tế/chế độ ăn cho từng cá nhân.</p>
+    </main>
+
+    <script>
+        const POSTS = [
+            { slug: "coa-la-gi", title: "COA là gì? Cách đọc Moisture, HMF, Diastase…", cat: "Kiến thức", date: "2025-02-14", mins: 14, img: "assets/img/coa.jpg" },
+            { slug: "mat-ong-that-gia", title: "7 cách phân biệt mật ong thật – giả (dễ áp dụng)", cat: "Kiến thức", date: "2025-02-02", mins: 9, img: "assets/img/thatgia.jpg" },
+            { slug: "tra-gung-chanh-mat-ong", title: "Trà gừng chanh mật ong: công thức chuẩn", cat: "Công thức", date: "2025-01-18", mins: 6, img: "assets/img/tg.jpg" },
+            { slug: "sua-ong-chua-cong-dung", title: "Sữa ong chúa: công dụng & cách dùng an toàn", cat: "Sức khỏe", date: "2025-01-10", mins: 10, img: "assets/img/royaljelly.jpg" },
+            { slug: "hau-truong-nong-trai", title: "Một ngày ở nông trại đối tác Bee Shop", cat: "Hậu trường", date: "2024-11-24", mins: 6, img: "assets/img/farm.jpg" }
+        ];
+        const slug = new URLSearchParams(location.search).get('slug') || "";
+        const p = POSTS.find(x => x.slug === slug);
+        const fmtDate = d => { const t = new Date(d); return t.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }); };
+        const fallback = "data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 800 500%27><rect width=%27100%25%27 height=%27100%25%27 fill=%23f6f6f6/></svg>";
+
+        function imgTag(src, alt) { return `<img src="${src}" alt="${alt}" onerror="this.src='${fallback}'">`; }
+
+        /* ====== Nội dung dài cho 5 bài ====== */
+        function html(slug) {
+            if (slug === "coa-la-gi") return `
+            <p>COA (<em>Certificate of Analysis</em>) là <b>phiếu kiểm nghiệm</b> cho từng <b>mã lô (LOT)</b> mật ong. Đây là “căn cước khoa học” giúp người mua và nhà bán minh bạch chất lượng, hạn chế rủi ro gia nhiệt quá mức hoặc pha tạp.</p>
+            <figure>${imgTag("assets/img/kiemnghiem.jpg", "Thiết bị kiểm nghiệm mật ong")}<figcaption>Phòng lab đối tác kiểm tra HMF/Diastase, độ ẩm và chỉ tiêu an toàn.</figcaption></figure>
+
+            <h2>1) 6 chỉ số quan trọng trên COA</h2>
+            <ul>
+              <li><b>Moisture (độ ẩm):</b> tỷ lệ nước trong mật; thường ≤ 20%. Độ ẩm thấp giúp hạn chế lên men, hương vị “đầm”.</li>
+              <li><b>HMF (mg/kg):</b> chỉ số nhạy nhiệt. Càng thấp càng tốt; theo Codex ≤ 40. Mật bị đun mạnh có HMF cao.</li>
+              <li><b>Diastase (DN):</b> hoạt tính enzyme; nhạy nhiệt. DN ≥ 8 là đạt. DN cao gợi ý mật ít gia nhiệt.</li>
+              <li><b>Sucrose (%):</b> đường mía tự nhiên trong mật; thường thấp (&lt;5%). Quá cao có thể gợi ý pha trộn.</li>
+              <li><b>Reducing sugars (%):</b> glucose + fructose, quyết định vị ngọt/kết tinh.</li>
+              <li><b>Antibiotics/pesticides:</b> một số lab kèm bảng tầm soát dư lượng (tetracycline, sulfa...).</li>
+            </ul>
+
+            <h3>Bảng tham chiếu nhanh (thường gặp)</h3>
+            <table class="table">
+              <thead><tr><th>Chỉ số</th><th>Tiêu chuẩn tham khảo</th><th>Ghi chú</th></tr></thead>
+              <tbody>
+                <tr><td>Moisture</td><td>≤ 20%</td><td>18–19% rất đẹp; &gt;20% dễ lên men</td></tr>
+                <tr><td>HMF</td><td>≤ 40 mg/kg</td><td>&lt;15 mg/kg: mật “dịu nhiệt”, bảo toàn hương</td></tr>
+                <tr><td>Diastase</td><td>≥ 8 DN</td><td>Phụ thuộc nguồn hoa; quá thấp + HMF cao ⇒ đã “nấu”</td></tr>
+                <tr><td>Sucrose</td><td>&lt; 5%</td><td>Tuỳ vụ/hoa; cao bất thường ⇒ cần kiểm tra thêm</td></tr>
+                <tr><td>Đường khử</td><td>≥ 65%</td><td>Ảnh hưởng vị ngọt/kết tinh</td></tr>
+              </tbody>
+            </table>
+
+            <h2>2) Cách đọc một phiếu COA <em>từ A–Z</em></h2>
+            <ol>
+              <li><b>Đối chiếu LOT:</b> chai bạn cầm phải trùng <code>LOT</code> trên COA (ví dụ: <code>LOT: 24CF-11</code>).</li>
+              <li><b>Kiểm tra ngày xét nghiệm:</b> nên gần thời điểm đóng chai; nếu quá cũ, hỏi lại nhà bán về lô mới.</li>
+              <li><b>Đọc nhóm chất lượng:</b> Moisture, HMF, Diastase, Sucrose, Đường khử.</li>
+              <li><b>Đọc nhóm an toàn:</b> dư lượng kháng sinh, kim loại nặng (nếu có).</li>
+              <li><b>Ghi chú nguồn gốc:</b> khu vực, loài hoa, mùa vụ – rất hữu ích để so sánh cảm quan.</li>
+            </ol>
+
+            <figure>${imgTag("assets/img/coa.jpg", "Ví dụ COA đầy đủ mục")}<figcaption>Ví dụ COA: Moisture 18.7; HMF 12; Diastase 12.5 DN; Sucrose 2.3%.</figcaption></figure>
+
+            <h2>3) Giải thích mối liên hệ giữa HMF &amp; Diastase</h2>
+            <p>HMF tăng khi mật tiếp xúc nhiệt lâu; Diastase thì giảm khi gặp nhiệt. Vì vậy một cặp số “đẹp” thường là <b>HMF thấp + DN không quá thấp</b>. Nếu <b>HMF cao nhưng DN vẫn cao</b> – hãy xem lại phương pháp đo và nguồn hoa (một số loài tự nhiên có DN cao).</p>
+
+            <h3>Thực tế tại Bee Shop</h3>
+            <ul>
+              <li>Mật đóng chai không đun sôi; nếu cần làm ấm để rót, giữ ~40°C, thời gian ngắn.</li>
+              <li>COA công khai theo từng LOT; khách có thể quét QR trên tem để xem.</li>
+            </ul>
+
+            <div class="callout"><b>Mẹo chuyên gia:</b> Đừng đánh giá chất lượng chỉ bằng màu sắc. Màu phụ thuộc nguồn hoa &amp; khoáng, không phản ánh việc “pha đường”.</div>
+
+            <h2>4) Câu hỏi thường gặp</h2>
+            <p><b>DN càng cao càng tốt?</b> Không nhất thiết. DN tuỳ loài hoa. Quan trọng là đạt chuẩn và ổn định theo lô.</p>
+            <p><b>COA bản chụp có đáng tin?</b> Miễn thể hiện lab, phương pháp, ngày test, LOT; tốt nhất có dấu/QR xác minh.</p>
+
+            <div class="divider"></div>
+            <p>Khi đã quen đọc COA, bạn sẽ dễ dàng so sánh các lô, hiểu vì sao vị/hương thay đổi theo mùa – và chọn đúng loại hợp khẩu vị.</p>
+          `;
+
+            if (slug === "mat-ong-that-gia") return `
+            <p>Nhu cầu cao khiến mật ong bị pha trộn (siro, đường mía, siro bắp… ) hoặc xử lý nhiệt quá mạnh để “đồng nhất” màu. Dưới đây là <b>7 cách</b> dễ áp dụng tại nhà, kèm giới hạn của từng cách – vì <b>COA theo LOT</b> vẫn là bằng chứng chắc nhất.</p>
+
+            <h2>1) Mùi – vị – hậu vị</h2>
+            <p>Mật thật thường có mùi hoa nhẹ, lớp hương “đa tầng”, hậu vị sạch. Mùi quá gắt, ngọt gắt kiểu siro là dấu hiệu đáng ngờ.</p>
+
+            <h2>2) Độ chảy &amp; kéo sợi</h2>
+            <figure>${imgTag("assets/img/honey-1.jpg", "Giọt mật ong kéo sợi")}<figcaption>Giọt mật kéo sợi mảnh, đứt gọn; rơi xuống tạo “mâm” nhỏ rồi lan chậm.</figcaption></figure>
+
+            <h2>3) Kết tinh</h2>
+            <p>Kết tinh là tự nhiên (đặc biệt với mật giàu glucose như hoa cà phê). Hạt tinh thể đều, mịn – dấu hiệu tốt. Không phải “mật giả”.</p>
+
+            <h2>4) Thử giọt trong nước</h2>
+            <figure>${imgTag("assets/img/nuoc.jpg", "Thử trong ly nước")}<figcaption>Giọt mật chìm khá nhanh, tạo vệt trước khi tan. Không dùng nước sôi để thử.</figcaption></figure>
+
+            <h2>5) Kiểm tra độ ẩm</h2>
+            <p>Độ ẩm &gt; 20% dễ lên men. Người bán uy tín có máy đo hoặc COA. Nếu chai “xì ga” sau vài tuần trời nóng – có thể do ẩm cao.</p>
+
+            <h2>6) Dấu vết nguồn gốc</h2>
+            <ul>
+              <li>Ghi rõ vùng khai thác, mùa vụ, nhà nuôi ong.</li>
+              <li>Tem LOT trên nắp/nhãn trùng với LOT trên COA.</li>
+            </ul>
+
+            <h2>7) Giá &amp; bao bì</h2>
+            <p>Giá quá rẻ kèm nhãn sơ sài, không có COA – nên thận trọng.</p>
+
+            <div class="callout"><b>Cảnh báo:</b> Các mẹo “đốt giấy/que diêm, nhỏ i-ốt…” không đủ độ tin cậy để kết luận. Hãy xem chúng như <em>gợi ý</em>, không phải bằng chứng.</div>
+
+            <h2>Checklist 10 điểm chấm nhanh</h2>
+            <ul>
+              <li>Mùi tự nhiên, không hắc – <b>1đ</b></li>
+              <li>Vị hài hòa, không dính cổ – <b>1đ</b></li>
+              <li>Kéo sợi mảnh, đứt gọn – <b>1đ</b></li>
+              <li>Kết tinh đồng đều (nếu có) – <b>1đ</b></li>
+              <li>Không tách lớp lạ – <b>1đ</b></li>
+              <li>Độ ẩm ≤ 20% (máy/COA) – <b>2đ</b></li>
+              <li>COA theo đúng LOT – <b>2đ</b></li>
+              <li>Thông tin nguồn gốc minh bạch – <b>1đ</b></li>
+            </ul>
+            <p>≥ 8đ: Rất đáng tin; 6–7đ: Cân nhắc thêm; &lt;6đ: Nên bỏ qua.</p>
+
+            <h3>Bảo quản để “đọc vị” tốt hơn</h3>
+            <ul>
+              <li>Đậy kín, tránh nắng; 20–25°C là lý tưởng.</li>
+              <li>Nếu kết tinh cứng, làm ấm <b>~40°C</b> (không đun sôi) để tan.</li>
+            </ul>
+
+            <blockquote><b>Kết luận:</b> Cảm quan + thói quen minh bạch + COA theo LOT là bộ ba vững chắc để tránh mật pha trộn.</blockquote>
+          `;
+
+            if (slug === "tra-gung-chanh-mat-ong") return `
+            <p>Công thức “kinh điển” dễ uống, ấm bụng cho ngày se lạnh. Bí quyết là giữ nước <b>~60°C</b> để không làm giảm hoạt tính enzyme của mật ong, đồng thời tinh dầu gừng/chanh vẫn tươi.</p>
+
+            <h2>Nguyên liệu (1 ly)</h2>
+            <ul>
+              <li>5–7 g gừng tươi (đập dập)</li>
+              <li>1–2 thìa mật ong (tuỳ khẩu vị)</li>
+              <li>1/2 quả chanh tươi</li>
+              <li>200 ml nước ấm ~60°C</li>
+              <li>Tùy chọn: quế/thảo quả, vài lá bạc hà</li>
+            </ul>
+
+            <h2>Cách làm chi tiết</h2>
+            <ol>
+              <li><b>Ủ gừng 2–3 phút</b> với nước ấm để ra tinh dầu.</li>
+              <li><b>Thêm mật ong</b>, khuấy tan nhẹ tay.</li>
+              <li><b>Vắt chanh sau cùng</b>; nếm lại, thêm đá nếu thích.</li>
+            </ol>
+
+            <figure>${imgTag("assets/img/tg.jpg", "Chuẩn bị gừng, chanh, mật ong")}<figcaption>Nguyên liệu tươi quyết định hương vị cuối cùng.</figcaption></figure>
+
+            <h2>Biến tấu hương vị</h2>
+            <ul>
+              <li><b>Honey Lemon Soda:</b> pha sẵn mật ong + chanh, rót soda lạnh.</li>
+              <li><b>Thêm quế:</b> 1 đoạn nhỏ cho mùi ấm, hợp mùa mưa.</li>
+              <li><b>Đổi chanh vàng:</b> vị dịu, mùi tinh dầu rõ hơn.</li>
+            </ul>
+
+            <h3>Làm sẵn 3 ngày (meal-prep)</h3>
+            <p>Trong hũ thủy tinh: <b>30 g gừng thái lát + 6 thìa mật ong + vỏ chanh bào mỏng</b>. Đậy kín, để mát 4–6°C; khi uống múc 2 thìa/ly, thêm nước ấm, vắt chanh tươi.</p>
+
+            <div class="callout"><b>Lưu ý sức khỏe:</b> Không dùng mật ong cho trẻ &lt; 12 tháng. Người bệnh dạ dày nên giảm gừng; tiểu đường cần tính tổng đường đưa vào.</div>
+
+            <h2>Lỗi thường gặp &amp; cách khắc phục</h2>
+            <ul>
+              <li><b>Nước quá nóng</b> ⇒ mật có mùi “nấu”: để nguội bớt hoặc cho mật sau cùng.</li>
+              <li><b>Đắng</b> ⇒ vắt chanh quá tay hoặc dùng vỏ chanh già: bớt vỏ, tăng mật 0.5 thìa.</li>
+            </ul>
+
+            <figure>${imgTag("assets/img/tg2.jpg", "Ly trà gừng chanh mật ong hoàn thiện")}<figcaption>Ly hoàn thiện: trong, hương thơm tự nhiên, vị ấm dễ chịu.</figcaption></figure>
+          `;
+
+            if (slug === "sua-ong-chua-cong-dung") return `
+            <p>Sữa ong chúa (<em>Royal Jelly</em>) là chất dinh dưỡng ong thợ tiết ra để nuôi ấu trùng và ong chúa. Thành phần giàu <b>protein</b>, <b>vitamin nhóm B</b>, <b>axit béo 10-HDA</b>. Không phải “thần dược”, nhưng dùng đúng có thể hỗ trợ ăn ngon và giảm mệt mỏi ở một số người.</p>
+
+            <figure>${imgTag("assets/img/royaljelly.jpg", "Hũ sữa ong chúa")}<figcaption>Chọn sản phẩm bảo quản lạnh, nhãn rõ thành phần &amp; hạn dùng.</figcaption></figure>
+
+            <h2>1) Thành phần &amp; lợi ích gợi ý</h2>
+            <ul>
+              <li><b>10-HDA</b>: axit béo đặc trưng; thường dùng làm chỉ dấu định tính.</li>
+              <li><b>Protein &amp; peptide</b>: góp phần vị umami, dễ tan trong miệng.</li>
+              <li><b>Vitamin B</b>: có mặt ở mức vừa, hỗ trợ chuyển hóa năng lượng.</li>
+            </ul>
+            <p><i>Gợi ý lợi ích</i> (từ các nghiên cứu quy mô nhỏ): hỗ trợ cảm giác ăn ngon, giảm mệt mỏi; da – tóc được nhiều người phản hồi tích cực. Tuy nhiên, đáp ứng cá nhân rất khác nhau.</p>
+
+            <h2>2) Cách dùng an toàn</h2>
+            <ul>
+              <li><b>Liều khởi đầu:</b> 1–2 g/ngày, buổi sáng. Theo dõi 3–5 ngày.</li>
+              <li><b>Dễ dùng:</b> trộn với mật ong/sữa chua, tránh kim loại dính mùi.</li>
+              <li><b>Chu kỳ:</b> 4–6 tuần, nghỉ 1–2 tuần rồi đánh giá.</li>
+            </ul>
+
+            <div class="callout"><b>Ai cần thận trọng?</b> Người từng dị ứng sản phẩm ong; phụ nữ có thai/cho con bú; người có bệnh nền/đang dùng thuốc – nên hỏi ý kiến chuyên môn trước khi dùng.</div>
+
+            <h2>3) Bảo quản</h2>
+            <ul>
+              <li>Lạnh 2–6°C. Tránh để ở cửa tủ (dao động nhiệt).</li>
+              <li>Múc bằng muỗng khô, sạch; đóng nắp ngay sau khi lấy.</li>
+            </ul>
+
+            <h2>4) Hỏi nhanh – đáp gọn</h2>
+            <p><b>Trẻ nhỏ dùng được không?</b> Không khuyến nghị cho trẻ dưới 2 tuổi. Trẻ lớn cần theo dõi dị ứng kỹ.</p>
+            <p><b>Vị chua gắt có bình thường?</b> Có – do acid hữu cơ. Pha cùng mật ong sẽ dễ uống hơn.</p>
+
+            <figure>${imgTag("assets/img/tulanh.jpg", "Bảo quản lạnh đúng cách")}<figcaption>Bảo quản lạnh xuyên suốt chuỗi cung ứng giữ chất lượng ổn định.</figcaption></figure>
+
+            <div class="divider"></div>
+            <p class="small">Ghi chú: Nội dung mang tính tham khảo, không thay thế tư vấn cá nhân hóa.</p>
+          `;
+
+            if (slug === "hau-truong-nong-trai") return `
+            <p>Mời bạn theo chân đội nuôi ong trong một ngày làm việc – từ kiểm tra đàn, theo dõi nguồn hoa đến lấy cầu mật đã <b>vít nắp</b> (dấu hiệu mật chín, độ ẩm thấp), xử lý sau thu hoạch và truy xuất COA cho từng <b>LOT</b>.</p>
+
+            <h2>Timeline một ngày ở trại</h2>
+            <ul>
+              <li><b>05:30</b> – Kiểm tra thời tiết, hướng di chuyển đàn (nếu cần).</li>
+              <li><b>07:00</b> – Quan sát nguồn hoa, mật độ ong thợ.</li>
+              <li><b>09:00</b> – Lấy các <em>frame</em> đã vít nắp, chuyển về nhà quay.</li>
+              <li><b>10:00</b> – Quay ly tâm, lọc thô; <b>không đun sôi</b>.</li>
+              <li><b>11:30</b> – Lắng tự nhiên, rót vào bồn inox.</li>
+              <li><b>Chiều</b> – Lấy mẫu đại diện gửi lab; đánh mã <b>LOT</b>.</li>
+            </ul>
+
+            <figure>${imgTag("assets/img/farm.jpg", "Trại ong vào sáng sớm")}<figcaption>Sáng sớm: ong hoạt động mạnh quanh nguồn hoa.</figcaption></figure>
+
+            <h2>Quy trình từ tổ ong đến chai</h2>
+            <ol>
+              <li><b>Quay &amp; lọc:</b> tháo nắp sáp, quay ở tốc độ vừa để không cuốn sáp.</li>
+              <li><b>Lắng:</b> 24–48 giờ cho bọt khí nổi lên, hương ổn định.</li>
+              <li><b>Làm ấm nhẹ:</b> nếu cần rót – giữ ~40°C, thời gian ngắn.</li>
+              <li><b>Đóng chai &amp; dán LOT:</b> quét QR tra cứu COA khi có kết quả.</li>
+            </ol>
+
+            <figure>${imgTag("assets/img/nuoi.jpg", "Cầu mật vít nắp")}<figcaption>Nắp sáp trắng là dấu hiệu mật đã đạt độ chín.</figcaption></figure>
+
+            <h2>Kiểm soát chất lượng &amp; COA</h2>
+            <ul>
+              <li>Lấy mẫu đại diện mỗi bồn; niêm phong theo quy định phòng lab.</li>
+              <li>COA gồm Moisture, HMF, Diastase, đường, (nếu gói test) dư lượng kháng sinh.</li>
+              <li>Khi phát hành COA, hệ thống cập nhật liên kết theo <b>LOT</b>.</li>
+            </ul>
+
+            <h2>Chăm ong bền vững</h2>
+            <ul>
+              <li>Giữ lại đủ mật cho đàn sau thu hoạch.</li>
+              <li>Không lạm dụng kháng sinh; ưu tiên vệ sinh tổ &amp; di chuyển mùa vụ hợp lý.</li>
+              <li>Thu gom sáp để tái chế nến sáp ong, giảm lãng phí.</li>
+            </ul>
+
+            <blockquote>Minh bạch từ nông trại tới chai là cam kết của Bee Shop. Bạn có thể yêu cầu COA theo đúng LOT bất cứ lúc nào.</blockquote>
+          `;
+
+            return `<p>Nội dung đang cập nhật.</p>`;
+        }
+
+        /* ====== Render ====== */
+        if (!p) {
+            document.title = "Không tìm thấy bài viết • Bee Shop Blog";
+            document.getElementById('title').textContent = "Không tìm thấy bài viết";
+            document.getElementById('meta').textContent = "Liên kết có thể đã thay đổi.";
+            const img = document.getElementById('img'); img.src = fallback; img.alt = "no image";
+            document.getElementById('content').innerHTML = `<p><a href="blog.html">← Về danh sách</a></p>`;
+        } else {
+            document.title = p.title + " • Bee Shop Blog";
+            document.getElementById('title').textContent = p.title;
+            document.getElementById('meta').textContent = `${fmtDate(p.date)} • ${p.mins} phút đọc • ${p.cat}`;
+            const im = document.getElementById('img'); im.src = p.img; im.alt = p.title; im.onerror = () => { im.src = fallback; }
+            document.getElementById('content').innerHTML = html(p.slug);
+        }
+    </script>
+</body>
+</html>

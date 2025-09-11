@@ -1,116 +1,1107 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿<!doctype html>
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bee Shop - Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/site.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bee Shop — Ngọt ngào từ thiên nhiên</title>
+    <meta name="description" content="Bee Shop: Sản phẩm từ ong nguyên chất — Mật ong, sữa ong chúa, phấn hoa, nến sáp ong… Nguồn gốc minh bạch, chứng nhận, chuỗi chi nhánh tiện lợi." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add('io-init');</script>
+    <style>
+        :root {
+            --bee: #f7b500;
+            --bee-2: #ffe082;
+            --bee-dark: #e0a200;
+            --ink: #101828;
+            --muted: #667085;
+            --soft: #fff8e6;
+            --leaf: #0f7f75;
+            --leaf-2: #0b6f66;
+            --line: #e9eaee;
+            --card: #fff;
+        }
 
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;
+            color: var(--ink);
+            background: #fff
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        /* Topbar */
+        .topbar {
+            background: #111;
+            color: #e5e7eb;
+            font-size: 13px
+        }
+
+            .topbar .wrap {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 36px
+            }
+
+            .topbar a {
+                color: #fff;
+                opacity: .95
+            }
+
+        /* Testimonial item */
+        .card .item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        /* Avatar: cố định kích thước, cắt theo khung tròn */
+        img.avatar {
+            width: 72px !important; /* hoặc 64px tùy bạn */
+            height: 72px !important;
+            flex: 0 0 72px;
+            border-radius: 50%;
+            object-fit: cover; /* cắt ảnh cho vừa khung */
+            display: block;
+            background: #f6f6f6;
+            max-width: none; /* tránh rule img{max-width:100%} kéo dãn */
+        }
+
+        @media (max-width:480px) {
+            img.avatar {
+                width: 60px !important;
+                height: 60px !important;
+                flex-basis: 60px;
+            }
+        }
+        .grid.grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px; /* khoảng cách giữa các ảnh */
+        }
+
+            .grid.grid-2 img {
+                width: 100%;
+                height: 200px; /* điều chỉnh cho đẹp */
+                object-fit: cover; /* crop ảnh cho đồng bộ */
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0,0,0,.1);
+            }
+
+        /* Optional: name/role/stars style gọn gàng */
+        .name {
+            font-weight: 700
+        }
+
+        .role {
+            color: #6b7280;
+            font-size: 14px
+        }
+
+        .stars {
+            color: #f59e0b;
+            letter-spacing: .5px
+        }
+
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: var(--bee);
+            box-shadow: 0 2px 10px rgba(0,0,0,.06)
+        }
+
+        .brandbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px
+        }
+
+        .brand {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 800
+        }
+
+        .dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,#ffd54f,#ffeb3b)
+        }
+
+        /* Nav tầng 1 (trắng) */
+        .ctxbar {
+            background: #fff;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .ctx {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            height: 52px
+        }
+
+            .ctx a {
+                padding: 10px 14px;
+                border-radius: 12px;
+                font-weight: 700;
+                color: #233
+            }
+
+                .ctx a.active {
+                    background: #ffe8a3
+                }
+
+        /* Subnav xanh lá + gạch vàng */
+        .subnav {
+            background: var(--leaf);
+            position: sticky;
+            top: 116px;
+            z-index: 40
+        }
+
+        .sub {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            height: 56px;
+            overflow-x: auto
+        }
+
+            .sub a, .sub a:visited {
+                color: #fff;
+                opacity: .95;
+                font-weight: 700;
+                white-space: nowrap
+            }
+
+                .sub a.current {
+                    border-bottom: 3px solid var(--bee);
+                    padding-bottom: 3px;
+                    border-radius: 0
+                }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(180deg,var(--bee) 0%, #fff2bf 100%);
+            padding: 64px 0
+        }
+
+            .hero .wrap {
+                display: grid;
+                grid-template-columns: 1.2fr .8fr;
+                gap: 32px;
+                align-items: center
+            }
+
+        .badge {
+            display: inline-flex;
+            gap: 6px;
+            align-items: center;
+            background: #111;
+            color: #fff;
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 12px
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            margin: 12px 0
+        }
+        
+        .grid img {
+            max-width: 100%;
+            height: 220px; /* hoặc 240px, tùy bạn muốn */
+            object-fit: cover; /* cắt ảnh cho đều, không méo */
+            border-radius: 12px;
+        }
+        
+        .lead {
+            color: var(--muted)
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 12px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #111;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 800;
+            box-shadow: 0 10px 18px rgba(0,0,0,.14)
+        }
+
+            .btn.outline {
+                background: #fff;
+                color: #111;
+                border: 1px solid var(--line)
+            }
+
+        .chip {
+            display: inline-flex;
+            gap: 6px;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 8px 10px;
+            border-radius: 12px;
+            box-shadow: 0 6px 14px rgba(0,0,0,.06)
+        }
+
+        .hero-figure {
+            border-radius: 18px;
+            overflow: hidden;
+            background: rgba(255,255,255,.35);
+            box-shadow: 0 12px 30px rgba(0,0,0,.08)
+        }
+
+        .cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .cap-340 {
+            height: 340px
+        }
+
+        /* Sections */
+        section {
+            scroll-margin-top: 140px
+        }
+
+        .section {
+            padding: 64px 0
+        }
+
+            .section.soft {
+                background: var(--soft)
+            }
+
+        .h2 {
+            font-size: 32px;
+            margin: 0 0 10px
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px
+        }
+
+        .grid-2 {
+            grid-template-columns: 1fr 1fr
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3,1fr)
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4,1fr)
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,.06)
+        }
+
+            .card .body {
+                padding: 16px
+            }
+
+        .pill {
+            display: inline-flex;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid var(--line);
+            gap: 8px;
+            align-items: center
+        }
+
+        .price {
+            color: #0a7b34;
+            font-weight: 800
+        }
+
+        .cover {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block
+        }
+
+        /* Stats */
+        .stats {
+            background: var(--bee);
+            padding: 26px 0
+        }
+
+            .stats .row {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: 12px;
+                text-align: center
+            }
+
+            .stats .num {
+                font-size: 30px;
+                font-weight: 800
+            }
+
+        /* FAQ */
+        .accordion {
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            overflow: hidden
+        }
+
+        .acc-item {
+            border-top: 1px solid var(--line)
+        }
+
+            .acc-item:first-child {
+                border-top: 0
+            }
+
+        .acc-btn {
+            width: 100%;
+            text-align: left;
+            padding: 18px;
+            background: #fff;
+            font-weight: 800;
+            cursor: pointer
+        }
+
+        .acc-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease
+        }
+
+            .acc-panel .inner {
+                padding: 0 18px 18px;
+                color: #374151;
+                background: #fff
+            }
+
+        /* Contact */
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px
+        }
+
+        .input {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--line)
+        }
+
+        .textarea {
+            min-height: 120px
+        }
+
+        .branch {
+            padding: 14px;
+            border: 1px solid var(--line);
+            border-radius: 12px
+        }
+
+        .map {
+            width: 100%;
+            height: 260px;
+            border: 0;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,.08)
+        }
+
+        /* Footer */
+        .footer {
+            background: #121a18;
+            color: #e5e7eb;
+            padding: 28px 0;
+            margin-top: 60px
+        }
+
+        .ft-cols {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr 1fr;
+            gap: 28px
+        }
+
+        .ft-logo {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 10px
+        }
+
+        .bee-dot {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,#ffd54f,#ffb300)
+        }
+
+        .ft-title {
+            font-weight: 800;
+            letter-spacing: .06em
+        }
+
+        .ft-slogan {
+            margin: 4px 0 10px;
+            color: #cbd5e1
+        }
+
+        .ft-line {
+            border-top: 1px solid rgba(255,255,255,.15);
+            margin: 12px 0
+        }
+
+        .ft-follow {
+            font-weight: 700;
+            margin-bottom: 8px
+        }
+
+        .ft-social {
+            display: flex;
+            gap: 12px
+        }
+
+            .ft-social a {
+                width: 38px;
+                height: 38px;
+                border-radius: 999px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255,255,255,.08);
+                color: #fff
+            }
+
+        .ft-h {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #fff
+        }
+
+        .ft-links {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+            .ft-links li {
+                margin: 8px 0
+            }
+
+            .ft-links a {
+                color: #e5e7eb
+            }
+
+                .ft-links a:hover {
+                    text-decoration: underline;
+                    color: #fff
+                }
+
+        .ft-copy {
+            border-top: 1px solid rgba(255,255,255,.12);
+            margin-top: 18px;
+            padding-top: 14px;
+            font-size: 13px;
+            color: #cbd5e1;
+            text-align: center
+        }
+
+            .ft-copy a {
+                color: #fff
+            }
+
+        /* Reveal */
+        .reveal-io {
+            opacity: 1;
+            transform: none
+        }
+
+        .io-init .reveal-io {
+            opacity: 0;
+            transform: translateY(18px) scale(.98);
+            transition: opacity .6s ease,transform .6s ease
+        }
+
+            .io-init .reveal-io.show {
+                opacity: 1;
+                transform: none
+            }
+
+        .d1 {
+            transition-delay: .1s
+        }
+
+        .d2 {
+            transition-delay: .2s
+        }
+
+        .d3 {
+            transition-delay: .3s
+        }
+        
+
+
+        /* Back to top */
+        #backTop {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            display: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 999px;
+            background: #0fb8ae;
+            color: #fff;
+            font-weight: 800;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 22px rgba(0,0,0,.18)
+        }
+
+            #backTop::before {
+                content: "↑";
+                font-size: 18px
+            }
+
+        /* Responsive */
+        @media (max-width:980px) {
+            .hero .wrap {
+                grid-template-columns: 1fr
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .grid-4 {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .contact {
+                grid-template-columns: 1fr
+            }
+
+            .subnav {
+                top: 116px
+            }
+
+            section {
+                scroll-margin-top: 150px
+            }
+        }
+
+        /* (Tuỳ chọn) tăng ưu tiên giữ chữ trắng */
+        .header .subnav .sub a {
+            color: #fff
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bee-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">🐝 Bee Shop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about-me.html">About Me</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about-shop.html">About Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
-                    <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin/admin-dashboard.html">Admin</a></li>
-                </ul>
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container wrap">
+            <div>📦 Giao hàng toàn quốc — Đổi trả trong 7 ngày</div>
+            <div><a href="#contact">Liên hệ tư vấn</a></div>
+        </div>
+    </div>
+
+    <!-- BRAND + NAV TẦNG 1 -->
+    <header class="header">
+        <div class="container brandbar">
+            <a class="brand" href="index.html" aria-label="Bee Shop — Trang chủ">
+                <img class="logo"
+                     src="assets/img/logo.jpg"
+                     alt="Bee Shop"
+                     width="32" height="32"
+                     onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,
+                <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22>
+                    <rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22#ffd54f%22 />
+                    <path d=%27M7 16h18M11 10l10 12M21 10l-10 12%27 stroke=%22#111%22 stroke-width=%223%22 stroke-linecap=%22round%22 />
+                </svg>';">
+                <span class="brand-name">Bee Shop</span>
+            </a>
+
+            <nav class="ctx" id="ctxTabs">
+                <a href="?ctx=home" data-ctx="home">Trang chủ</a>
+                <a href="products.html" data-ctx="products">Sản phẩm</a>
+                <a href="?ctx=about" data-ctx="about">About Shop</a>
+                <a href="?ctx=sourcing" data-ctx="sourcing">Sourcing & Quality</a>
+                <a href="?ctx=branches" data-ctx="branches">Branches</a>
+                <a href="blog.html" data-ctx="blog">Blog</a>
+            </nav>
+        </div>
+
+        <!-- NAV TẦNG 2 -->
+        <div class="subnav">
+            <div class="container sub" id="subnav"><!-- JS inject --></div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container wrap">
+            <div class="reveal-io">
+                <span class="badge">🐝 Bee Shop · Tự nhiên & an toàn</span>
+                <h1>Nâng tầm trải nghiệm với sản phẩm từ ong <span style="color:#8a4c00">nguyên chất</span></h1>
+                <p class="lead">Ngọt ngào từ thiên nhiên – 100% sản phẩm từ ong, chọn lọc từ nông trại uy tín, truy xuất rõ ràng. Tốt cho sức khỏe, phù hợp cả gia đình.</p>
+                <div class="cta">
+                    <a class="btn" href="?ctx=products#cat-hot">🔥 Xem sản phẩm hot</a>
+                    <a class="btn outline" href="#contact">💬 Liên hệ ngay</a>
+                </div>
+                <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+                    <span class="chip">✅ 100% tự nhiên</span>
+                    <span class="chip">🚚 Giao nhanh toàn quốc</span>
+                    <span class="chip">⭐ 4.9/5 khách đánh giá</span>
+                </div>
+            </div>
+            <div class="hero-figure reveal-io d1">
+                <img class="cover-img cap-340"
+                     src="assets/img/bee/hero.jpg"
+                     onerror="this.onerror=null; this.src='assets/img/beehero.jpg';"
+                     alt="Bee Shop hero"
+                     width="1400" height="340"
+                     fetchpriority="high" decoding="async">
             </div>
         </div>
-    </nav>
+    </section>
 
-    <!-- Main -->
-    <main>
-        <!-- Hero Section -->
-        <header class="bg-warning text-dark text-center py-5">
-            <h1 class="fw-bold">🐝 Welcome to Bee Shop 🍯</h1>
-            <p class="lead">Ngọt ngào từ thiên nhiên – Dành cho bạn sự lựa chọn tốt nhất</p>
-            <a href="products.html" class="btn btn-dark btn-lg mt-3">🛍 Mua Ngay</a>
-        </header>
-
-        <!-- Featured Products -->
-        <section class="container py-5">
-            <h2 class="text-center mb-4">🌟 Sản phẩm nổi bật</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 text-center shadow">
-                        <img src="img/honey.jpg" class="card-img-top" alt="Honey">
-                        <div class="card-body">
-                            <h5 class="card-title">Mật ong nguyên chất</h5>
-                            <p class="card-text text-success fw-bold">$10</p>
-                            <button class="btn btn-warning">Thêm vào giỏ</button>
-                        </div>
+    <!-- MAIN -->
+    <main id="content">
+        <!-- Intro -->
+        <section id="intro" class="section">
+            <div class="container grid grid-2">
+                <div class="reveal-io">
+                    <h2 class="h2">🐝 Giới thiệu</h2>
+                    <p class="lead">
+                        Bee Shop lan tỏa lối sống tự nhiên & bền vững thông qua các sản phẩm từ ong nguyên chất:
+                        mật ong, sữa ong chúa, phấn hoa, nến sáp ong và nhiều phiên bản kết hợp sáng tạo.
+                    </p>
+                    <ul>
+                        <li>🧪 Kiểm nghiệm thành phần & chỉ tiêu an toàn theo chuẩn AOAC/ISO tương ứng.</li>
+                        <li>📦 Quy trình đóng gói khép kín, hạn chế ánh sáng & nhiệt độ để giữ trọn dưỡng chất.</li>
+                        <li>🔎 Truy xuất LOT theo từng lô — minh bạch nguồn gốc nông trại & vận chuyển.</li>
+                    </ul>
+                    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+                        <span class="pill">🍯 Hương vị thiên nhiên</span>
+                        <span class="pill">🌿 Không chất bảo quản</span>
+                        <span class="pill">♻️ Bao bì thân thiện</span>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 text-center shadow">
-                        <img src="img/royaljelly.jpg" class="card-img-top" alt="Royal Jelly">
-                        <div class="card-body">
-                            <h5 class="card-title">Sữa ong chúa</h5>
-                            <p class="card-text text-success fw-bold">$15</p>
-                            <button class="btn btn-warning">Thêm vào giỏ</button>
-                        </div>
+                <div class="card reveal-io d1">
+                    <img class="cover" src="assets/img/tamnhin.jpg"
+                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 480%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23fff8e6/></svg>'" alt="">
+                    <div class="body">
+                        <strong>Tầm nhìn & Sứ mệnh</strong>
+                        <p>Trở thành thương hiệu sản phẩm từ ong đáng tin cậy tại Việt Nam — đồng hành cùng nông trại bền vững, trao tay bạn sự an tâm và vị ngon chuẩn tự nhiên.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 text-center shadow">
-                        <img src="img/pollen.jpg" class="card-img-top" alt="Bee Pollen">
-                        <div class="card-body">
-                            <h5 class="card-title">Phấn hoa ong</h5>
-                            <p class="card-text text-success fw-bold">$12</p>
-                            <button class="btn btn-warning">Thêm vào giỏ</button>
+            </div>
+        </section>
+
+        <!-- Coming -->
+        <section id="coming" class="section soft">
+            <div class="container">
+                <h2 class="h2 reveal-io">🚀 Sắp ra mắt</h2>
+                <p class="lead reveal-io">Những lựa chọn mới mẻ đang “ấp ủ” để trình làng.</p>
+                <div class="grid grid-3">
+                    <div class="card reveal-io">
+                        <img class="cover" src="assets/img/preview-1.jpg"
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 480%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="">
+                        <div class="body"><strong>“Mascot Bee” phiên bản gốm</strong><p>Vật phẩm sưu tầm biểu tượng ong chăm chỉ, kèm mã ưu đãi “bee-lover”.</p></div>
+                    </div>
+                    <div class="card reveal-io d1">
+                        <img class="cover" src="assets/img/combo.jpg"
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 480%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="">
+                        <div class="body"><strong>Combo mật ong + nến sáp ong</strong><p>Thư giãn hương mật dịu nhẹ — tiết kiệm hơn khi mua kèm.</p></div>
+                    </div>
+                    <div class="card reveal-io d2">
+                        <img class="cover" src="assets/img/preview-2.jpg"
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 480%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="">
+                        <div class="body"><strong>Ưu đãi mở bán</strong><p>Đăng ký nhận thông báo để không bỏ lỡ quà tặng cho 100 đơn đầu tiên.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured -->
+        <section id="featured" class="section">
+            <div class="container">
+                <h2 class="h2 reveal-io">🏆 Sản phẩm tiêu biểu</h2>
+                <div class="grid grid-4">
+                    <a class="card reveal-io" href="products.html#honey">
+                        <img class="cover" src="assets/img/honey.jpg"
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 480%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="">
+                        <div class="body"><strong>Mật ong chai</strong><div class="price">từ 239.000đ</div></div>
+                    </a>
+                    <a class="card reveal-io d1" href="products.html#wax">
+                        <img class="cover" src="assets/img/candle.jpg"
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 480%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="">
+                        <div class="body"><strong>Nến sáp ong</strong><div class="price">từ 89.000đ</div></div>
+                    </a>
+                    <a class="card reveal-io d2" href="products.html#royal">
+                        <img class="cover" src="assets/img/royaljelly.jpg"
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 480%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="">
+                        <div class="body"><strong>Sữa ong chúa</strong><div class="price">từ 319.000đ</div></div>
+                    </a>
+                    <a class="card reveal-io d3" href="products.html#pollen">
+                        <img class="cover" src="assets/img/pollen.jpg"
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 480%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="">
+                        <div class="body"><strong>Phấn hoa ong</strong><div class="price">từ 159.000đ</div></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reasons -->
+        <section id="reasons" class="section soft">
+            <div class="container grid grid-2">
+                <div class="reveal-io">
+                    <h2 class="h2">💛 Vì sao chọn Bee Shop?</h2>
+                    <ul>
+                        <li>🌿 100% tự nhiên — không chất bảo quản.</li>
+                        <li>🏞️ Nguồn gốc rõ ràng từ nông trại đối tác uy tín, đa dạng sinh học.</li>
+                        <li>🧊 Quy chuẩn lưu trữ lạnh/thoáng, giữ trọn hương vị & dưỡng chất.</li>
+                        <li>🚚 Giao nhanh toàn quốc, hỗ trợ đổi trả trong 7 ngày.</li>
+                        <li>🤝 Đội ngũ hỗ trợ tận tâm, tư vấn sử dụng theo nhu cầu.</li>
+                    </ul>
+                </div>
+                <div class="grid grid-2">
+                    <img class="card reveal-io" src="assets/img/why-1.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 380%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23fff8e6/></svg>'" alt="">
+                    <img class="card reveal-io d1" src="assets/img/why-2.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 380%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23fff8e6/></svg>'" alt="">
+                </div>
+            </div>
+        </section>
+
+        <!-- Voices -->
+        <section id="voices" class="section">
+            <div class="container">
+                <h2 class="h2 reveal-io">💬 Cảm nghĩ khách hàng</h2>
+                <div class="testi">
+                    <div class="card reveal-io">
+                        <div class="item">
+                            <img class="avatar" src="assets/img/thu-ngan.jpg"
+                                 onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 80 80%22><rect width=%2280%22 height=%2280%22 rx=%2240%22 fill=%23ffe8a3/><text x=%2250%25%22 y=%2253%25%22 text-anchor=%22middle%22 font-size=%2236%22 font-family=%22Inter%22 fill=%238a4c00%22>TN</text></svg>'"
+                                 alt="Thu Ngân">
+                            <div>
+                                <div class="name">Thu Ngân</div>
+                                <div class="role">Nhân viên văn phòng</div>
+                                <div class="stars">★★★★★</div>
+                                <p style="margin:8px 0 0">“Mật ong vị ngọt thanh, thơm dịu và không bị gắt... CSKH trả lời siêu nhanh.”</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card reveal-io d1">
+                        <div class="item">
+                            <img class="avatar" src="assets/img/minh-huy.jpg"
+                                 onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 80 80%22><rect width=%2280%22 height=%2280%22 rx=%2240%22 fill=%23ffe8a3/><text x=%2250%25%22 y=%2253%25%22 text-anchor=%22middle%22 font-size=%2236%22 font-family=%22Inter%22 fill=%238a4c00%22>MH</text></svg>'"
+                                 alt="Minh Huy">
+                            <div>
+                                <div class="name">Minh Huy</div>
+                                <div class="role">Thiết kế nội thất</div>
+                                <div class="stars">★★★★★</div>
+                                <p style="margin:8px 0 0">“Nến sáp ong cháy rất êm, khói sạch và mùi mật ong nhẹ nhàng...”</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card reveal-io d2">
+                        <div class="item">
+                            <img class="avatar" src="assets/img/ai-vy.jpg"
+                                 onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 80 80%22><rect width=%2280%22 height=%2280%22 rx=%2240%22 fill=%23ffe8a3/><text x=%2250%25%22 y=%2253%25%22 text-anchor=%22middle%22 font-size=%2236%22 font-family=%22Inter%22 fill=%238a4c00%22>AV</text></svg>'"
+                                 alt="Ái Vy">
+                            <div>
+                                <div class="name">Ái Vy</div>
+                                <div class="role">Content creator</div>
+                                <div class="stars">★★★★★</div>
+                                <p style="margin:8px 0 0">“Dùng sữa ong chúa 2 tuần cảm nhận rõ giấc ngủ sâu hơn...”</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Promotion Section -->
-        <section class="bg-light py-5">
+        <!-- FAQ -->
+        <section id="faq" class="section soft">
             <div class="container">
-                <h2 class="text-center mb-4">🔥 Sản phẩm khuyến mãi</h2>
-                <div class="row g-4">
-                    <div class="col-md-6">
-                        <div class="card h-100 shadow border-danger">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-danger fw-bold">Combo mật ong + nến sáp ong</h5>
-                                <p class="text-decoration-line-through">$18</p>
-                                <p class="fs-4 text-success fw-bold">$14</p>
-                                <button class="btn btn-danger">Mua Ngay</button>
-                            </div>
-                        </div>
+                <h2 class="h2 reveal-io">❓ FAQ</h2>
+                <div class="accordion reveal-io">
+                    <div class="acc-item">
+                        <button class="acc-btn">Sản phẩm có thật sự tự nhiên không?</button>
+                        <div class="acc-panel"><div class="inner">100% từ ong tự nhiên, không pha đường. Có kiểm nghiệm định kỳ.</div></div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card h-100 shadow border-danger">
-                            <div class="card-body text-center">
-                                <h5 class="card-title text-danger fw-bold">Giảm giá 20% sữa ong chúa</h5>
-                                <p class="text-decoration-line-through">$15</p>
-                                <p class="fs-4 text-success fw-bold">$12</p>
-                                <button class="btn btn-danger">Mua Ngay</button>
-                            </div>
+                    <div class="acc-item">
+                        <button class="acc-btn">Bảo quản mật ong như thế nào?</button>
+                        <div class="acc-panel"><div class="inner">Để nơi khô thoáng; kết tinh là tự nhiên, có thể ngâm ấm 40–50°C.</div></div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="acc-btn">Có giao hàng toàn quốc không?</button>
+                        <div class="acc-panel"><div class="inner">Có. 2–4 ngày tuỳ khu vực; đổi trả 7 ngày nếu lỗi do vận chuyển.</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="h2 reveal-io">📮 Liên hệ tư vấn</h2>
+                <p class="lead reveal-io">Để lại thông tin — Bee Shop phản hồi trong 24h. Hoặc ghé chi nhánh gần bạn.</p>
+                <div class="contact">
+                    <form class="card reveal-io" onsubmit="alert('Đã gửi! (Demo tĩnh)');return false;">
+                        <div class="body">
+                            <input class="input" placeholder="Họ tên">
+                            <br><br><input class="input" placeholder="Email">
+                            <br><br><input class="input" placeholder="Số điện thoại">
+                            <br><br><textarea class="input textarea" placeholder="Nội dung cần tư vấn"></textarea>
+                            <br><br><button class="btn" type="submit">Gửi yêu cầu</button>
                         </div>
+                    </form>
+                    <div class="grid">
+                        <div class="branch card reveal-io"><div class="body"><strong>Q1</strong> — 123 Ong Vàng, TP.HCM · 0909 123 456</div></div>
+                        <div class="branch card reveal-io d1"><div class="body"><strong>Q7</strong> — 45 Honey Park, TP.HCM · 0909 222 333</div></div>
+                        <div class="branch card reveal-io d2"><div class="body"><strong>Thủ Đức</strong> — 88 Bee Street · 0909 444 555</div></div>
+                        <iframe class="map reveal-io d3" loading="lazy" allowfullscreen
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.451!2d106.700!3d10.776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3fb94b!2zUXVhbiAxLCBIQ00!5e0!3m2!1svi!2s!4v1700000000000">
+                        </iframe>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="row">
+                <div class="reveal-io"><div class="num">5,000+</div><div>Khách hàng</div></div>
+                <div class="reveal-io d1"><div class="num">20+</div><div>Sản phẩm / phiên bản</div></div>
+                <div class="reveal-io d2"><div class="num">15+</div><div>Chi nhánh / đại lý</div></div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer><p>© 2025 Bee Shop. All rights reserved.</p></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <div class="ft-cols">
+                <div>
+                    <a class="brand" href="index.html" aria-label="Bee Shop — Trang chủ">
+                        <img class="logo"
+                             src="assets/img/logo.jpg"
+                             alt="Bee Shop"
+                             width="32" height="32"
+                             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,
+                        <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22>
+                            <rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22#ffd54f%22 />
+                            <path d=%27M7 16h18M11 10l10 12M21 10l-10 12%27 stroke=%22#111%22 stroke-width=%223%22 stroke-linecap=%22round%22 />
+                        </svg>';">
+                        <span class="brand-name">Bee Shop</span>
+                    </a>
+                    <p class="ft-slogan">Ngọt ngào từ thiên nhiên – Dành cho bạn sự lựa chọn tốt nhất.</p>
+                    <div class="ft-line"></div>
+                    <div class="ft-follow">FOLLOW BEE SHOP</div>
+                    <div class="ft-social">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.6v-2.9h2.8V9a4 4 0 0 1 4.3-4.4c1.2 0 2.5.2 2.5.2v2.7h-1.4c-1.4 0-1.8.9-1.8 1.8v2.1h3.1l-.5 2.9h-2.6v7A10 10 0 0 0 22 12z" /></svg>
+                        </a>
+                        <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21 8.1a7.4 7.4 0 0 1-4-.9v6.6a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.3a3 3 0 1 0 2 2.8V2h3a7.4 7.4 0 0 0 4 3v3.1z" /></svg>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M23.5 7.5a3 3 0 0 0-2.1-2.1C19.5 5 12 5 12 5s-7.5 0-9.4.4A3 3 0 0 0 .5 7.5 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 4.5 3 3 0 0 0 2.1 2.1C4.5 19 12 19 12 19s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1c.3-1.5.5-3 .5-4.5s-.2-3-.5-4.5zM9.5 15.1V8.9l5.8 3.1-5.8 3.1z" /></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="ft-h">VỀ CHÚNG TÔI</h3>
+                    <ul class="ft-links">
+                        <li><a href="index.html#about">Giới thiệu</a></li>
+                        <li><a href="terms.html">Điều khoản</a></li>
+                        <li><a href="privacy.html">Bảo mật</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-h">SẢN PHẨM</h3>
+                    <ul class="ft-links">
+                        <li><a href="products.html#honey">Mật ong nguyên chất</a></li>
+                        <li><a href="products.html#wax">Nến sáp ong</a></li>
+                        <li><a href="products.html#royal">Sữa ong chúa</a></li>
+                        <li><a href="products.html#pollen">Phấn hoa ong</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-h">LIÊN HỆ</h3>
+                    <ul class="ft-links">
+                        <li>📞 <a href="tel:0909123456">0909 123 456</a></li>
+                        <li>✉️ <a href="mailto:contact@beeshop.com">contact@beeshop.com</a></li>
+                        <li>📍 <a href="index.html#contact">Q1, Q7, Thủ Đức</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ft-copy">© 2025 Bee Shop. All rights reserved. • Powered by <a href="#">Bee Shop Team</a></div>
+        </div>
+    </footer>
+
+    <button id="backTop"></button>
+
+    <script>
+        /* ====== Subnav schema ====== */
+        const SUBNAV = {
+            home: [
+                { id: 'intro', label: 'Giới thiệu' },
+                { id: 'coming', label: 'Sắp ra mắt' },
+                { id: 'featured', label: 'Sản phẩm tiêu biểu' },
+                { id: 'reasons', label: 'Vì sao chọn' },
+                { id: 'voices', label: 'Cảm nghĩ' },
+                { id: 'faq', label: 'FAQ' },
+                { id: 'contact', label: 'Liên hệ' }
+            ],
+            products: [
+                { id: 'cat-hot', label: 'Bán chạy' },
+                { id: 'cat-honey', label: 'Mật ong' },
+                { id: 'cat-royal', label: 'Sữa ong chúa' },
+                { id: 'cat-pollen', label: 'Phấn hoa' },
+                { id: 'cat-wax', label: 'Nến sáp ong' },
+                { id: 'guides', label: 'Hướng dẫn chọn' },
+                { id: 'warranty', label: 'Bảo hành/đổi trả' }
+            ],
+            about: [
+                { id: 'our-story', label: 'Câu chuyện' },
+                { id: 'vision', label: 'Tầm nhìn' },
+                { id: 'mission', label: 'Sứ mệnh' },
+                { id: 'values', label: 'Giá trị cốt lõi' },
+                { id: 'team', label: 'Đội ngũ' }
+            ],
+            sourcing: [
+                { id: 'origin', label: 'Nguồn gốc' },
+                { id: 'lab', label: 'Chứng nhận/COA' },
+                { id: 'standard', label: 'Quy chuẩn' },
+                { id: 'trace', label: 'Tra mã LOT' },
+                { id: 'storage', label: 'Bảo quản vận chuyển' }
+            ],
+            branches: [
+                { id: 'system', label: 'Hệ thống' },
+                { id: 'hcm', label: 'TP.HCM' },
+                { id: 'hn', label: 'Hà Nội' },
+                { id: 'mientay', label: 'Miền Tây' },
+                { id: 'agency', label: 'Tuyển đại lý' }
+            ]
+        };
+
+        /* ====== ctx from URL + active on top nav ====== */
+        const params = new URLSearchParams(location.search);
+        const ctx = params.get('ctx') || 'home';
+        document.querySelectorAll('#ctxTabs a').forEach(a => {
+            a.classList.toggle('active', a.dataset.ctx === ctx);
+        });
+
+        /* ====== Render subnav (ID ĐÚNG: subnav) ====== */
+        const sub = document.getElementById('subnav');
+        sub.innerHTML = (SUBNAV[ctx] || SUBNAV.home)
+            .map(item => `<a href="#${item.id}" data-target="${item.id}">${item.label}</a>`).join('');
+
+        /* ====== Scroll–spy: gắn .current để gạch vàng ====== */
+        const subLinks = [...document.querySelectorAll('#subnav a')];
+        const sections = subLinks
+            .map(a => document.querySelector(a.getAttribute('href')))
+            .filter(Boolean);
+
+        // Seed ban đầu: nếu có hash thì chọn đúng, không thì chọn item đầu
+        if (location.hash) {
+            sub.querySelector(`a[href="${location.hash}"]`)?.classList.add('current');
+        } else {
+            subLinks[0]?.classList.add('current');
+        }
+
+        const spy = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    const id = '#' + e.target.id;
+                    subLinks.forEach(a => a.classList.toggle('current', a.getAttribute('href') === id));
+                }
+            });
+        }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+        sections.forEach(s => spy.observe(s));
+
+        /* ====== Reveal on scroll ====== */
+        const io = new IntersectionObserver(es => {
+            es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+        }, { threshold: .15 });
+        document.querySelectorAll('.reveal-io').forEach(el => io.observe(el));
+
+        /* ====== Accordion ====== */
+        document.querySelectorAll('.acc-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const panel = btn.nextElementSibling;
+                const open = panel.style.maxHeight;
+                document.querySelectorAll('.acc-panel').forEach(p => p.style.maxHeight = null);
+                panel.style.maxHeight = open ? null : (panel.scrollHeight + 'px');
+            });
+        });
+
+        /* ====== Back to top ====== */
+        const backTop = document.getElementById('backTop');
+        window.addEventListener('scroll', () => {
+            backTop.style.display = window.scrollY > 600 ? 'inline-flex' : 'none';
+        });
+        backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        /* ====== Auto scroll to hash sau khi dựng subnav ====== */
+        if (location.hash) {
+            setTimeout(() => document.querySelector(location.hash)?.scrollIntoView({ behavior: 'smooth' }), 60);
+        }
+    </script>
 </body>
 </html>

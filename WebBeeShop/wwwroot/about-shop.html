@@ -1,69 +1,941 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿<!doctype html>
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bee Shop - About Shop</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/site.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Shop — Bee Shop</title>
+    <meta name="description" content="Câu chuyện Bee Shop: tầm nhìn & giá trị, hành trình phát triển, quy trình & kiểm định chất lượng, đội ngũ & đối tác." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add('io-init');</script>
+    <style>
+        :root {
+            --bee: #f7b500;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --teal: #0f746c
+        }
 
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+            color: var(--text);
+            background: #fff
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        /* Topbar */
+        .topbar {
+            background: #111;
+            color: #e5e7eb;
+            font-size: 13px
+        }
+
+            .topbar .wrap {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 36px
+            }
+
+            .topbar a {
+                color: #fff
+            }
+
+        /* Header (giống index) */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            background: var(--bee);
+            box-shadow: 0 2px 10px rgba(0,0,0,.06)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px
+        }
+
+        .brand {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 800
+        }
+
+            .brand .logo {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                background: linear-gradient(135deg,#ffd54f,#ffeb3b)
+            }
+
+        .menu {
+            display: flex;
+            gap: 18px
+        }
+
+            .menu a {
+                padding: 10px 12px;
+                border-radius: 10px;
+                font-weight: 700
+            }
+
+                .menu a:hover {
+                    background: rgba(255,255,255,.35)
+                }
+
+                .menu a.active {
+                    background: rgba(255,255,255,.35)
+                }
+
+        /* Subnav xanh */
+        .subnav {
+            position: sticky;
+            top: 64px;
+            z-index: 59;
+            background: var(--teal);
+            color: #fff
+        }
+
+        .sub {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            height: 56px;
+            overflow-x: auto
+        }
+
+            .sub a {
+                color: #fff;
+                font-weight: 700;
+                white-space: nowrap
+            }
+
+                .sub a.current {
+                    border-bottom: 3px solid #ffe08a;
+                    padding-bottom: 3px
+                }
+
+        /* Hero */
+        .badge {
+            display: inline-block;
+            background: #111;
+            color: #fff;
+            border-radius: 999px;
+            padding: 7px 12px;
+            font-size: 12px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #111;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            box-shadow: 0 8px 16px rgba(0,0,0,.15)
+        }
+
+            .btn.outline {
+                background: #fff;
+                color: #111;
+                border: 1px solid #e5e7eb
+            }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 9px 12px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,.06)
+        }
+
+        .lead {
+            color: #374151
+        }
+
+        .hero {
+            background: linear-gradient(180deg,var(--bee) 0%, #fff2bf 100%);
+            padding: 64px 0 52px
+        }
+
+            .hero .wrap {
+                display: grid;
+                grid-template-columns: 1.1fr .9fr;
+                gap: 26px;
+                align-items: center
+            }
+
+            .hero h1 {
+                margin: 0 0 10px;
+                font-size: 44px
+            }
+
+        .hero-fig {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0,0,0,.1)
+        }
+
+        .cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: inherit
+        }
+
+        .h340 {
+            height: 340px
+        }
+
+        /* Sections */
+        .section {
+            padding: 64px 0
+        }
+
+        .soft {
+            background: #fff8e6
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px
+        }
+
+        .grid-2 {
+            grid-template-columns: 1fr 1fr
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3,1fr)
+        }
+
+        .block {
+            padding: 26px;
+            border: 1px solid #eee;
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,.06)
+        }
+
+        .values {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 16px
+        }
+
+        .value {
+            border: 1px solid #f4e0a1;
+            background: #fff8d6;
+            border-radius: 14px;
+            padding: 14px
+        }
+
+        .kicker {
+            color: #92400e;
+            font-weight: 800
+        }
+
+        /* Timeline + stats */
+        .tl {
+            position: relative;
+            padding-left: 26px
+        }
+
+            .tl::before {
+                content: "";
+                position: absolute;
+                left: 8px;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: #f0c75e
+            }
+
+        .tli {
+            position: relative;
+            padding: 12px 0 12px 12px
+        }
+
+            .tli::before {
+                content: "";
+                position: absolute;
+                left: -3px;
+                top: 18px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #111
+            }
+
+            .tli small {
+                color: var(--muted)
+            }
+
+        .stats-band {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 12px
+        }
+
+        .stat {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-weight: 800;
+            box-shadow: 0 6px 18px rgba(0,0,0,.06)
+        }
+
+            .stat b {
+                font-size: 20px;
+                margin-right: 4px
+            }
+
+        /* Steps + certs */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 16px
+        }
+
+        .step {
+            padding: 18px;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            background: #fff;
+            text-align: center
+        }
+
+            .step .num {
+                width: 34px;
+                height: 34px;
+                border-radius: 999px;
+                background: #111;
+                color: #fff;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 800;
+                margin-bottom: 8px
+            }
+
+        .list {
+            margin: 0;
+            padding-left: 18px
+        }
+
+        /* Team + partners */
+        .team {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 16px
+        }
+
+        .card {
+            border: 1px solid #eee;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(0,0,0,.06);
+            overflow: hidden
+        }
+
+        .avatar {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block
+        }
+
+        .card .body {
+            padding: 14px
+        }
+
+        .logos {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            gap: 16px
+        }
+
+        .logo {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        /* FAQ */
+        .accordion {
+            border: 1px solid #eee;
+            border-radius: 14px;
+            overflow: hidden
+        }
+
+            .accordion .item {
+                border-top: 1px solid #eee
+            }
+
+                .accordion .item:first-child {
+                    border-top: 0
+                }
+
+        .acc-btn {
+            width: 100%;
+            text-align: left;
+            background: #fff;
+            padding: 16px;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        .acc-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease;
+            background: #fff
+        }
+
+            .acc-panel .inner {
+                padding: 0 16px 16px;
+                color: #374151
+            }
+
+        /* Footer */
+        .footer {
+            background: #121a18;
+            color: #e5e7eb;
+            padding: 28px 0;
+            margin-top: 60px
+        }
+
+        .ft-cols {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr 1fr;
+            gap: 28px
+        }
+
+        .ft-logo {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 10px
+        }
+
+        .bee-dot {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,#ffd54f,#ffb300)
+        }
+
+        .ft-title {
+            font-weight: 800;
+            letter-spacing: .06em
+        }
+
+        .ft-h {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #fff
+        }
+
+        .ft-links {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+            .ft-links li {
+                margin: 8px 0
+            }
+
+            .ft-links a {
+                color: #e5e7eb
+            }
+
+                .ft-links a:hover {
+                    color: #fff;
+                    text-decoration: underline
+                }
+
+        .ft-slogan {
+            margin: 4px 0 10px;
+            color: #cbd5e1
+        }
+
+        .ft-social {
+            display: flex;
+            gap: 12px
+        }
+
+            .ft-social a {
+                width: 38px;
+                height: 38px;
+                border-radius: 999px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255,255,255,.08);
+                color: #fff
+            }
+
+        .ft-copy {
+            border-top: 1px solid rgba(255,255,255,.12);
+            margin-top: 18px;
+            padding-top: 14px;
+            font-size: 13px;
+            color: #cbd5e1;
+            text-align: center
+        }
+
+        /* Back to top + reveal */
+        #backTop {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            display: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 999px;
+            background: #0fb8ae;
+            color: #fff;
+            font-weight: 800;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,.18)
+        }
+
+            #backTop::before {
+                content: "↑";
+                font-size: 18px
+            }
+
+        .reveal-io {
+            opacity: 1;
+            transform: none
+        }
+
+        .io-init .reveal-io {
+            opacity: 0;
+            transform: translateY(18px) scale(.98);
+            transition: opacity .6s ease,transform .6s ease
+        }
+
+            .io-init .reveal-io.show {
+                opacity: 1;
+                transform: none
+            }
+
+        .reveal-delay-1 {
+            transition-delay: .1s
+        }
+
+        .reveal-delay-2 {
+            transition-delay: .2s
+        }
+
+        /* Responsive */
+        @media(max-width:980px) {
+            .hero .wrap, .grid-2 {
+                grid-template-columns: 1fr
+            }
+
+            .values {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .steps {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .team {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .logos {
+                grid-template-columns: 1fr 1fr 1fr
+            }
+
+            .ft-cols {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:640px) {
+            .values, .steps, .team, .logos {
+                grid-template-columns: 1fr
+            }
+
+            .ft-cols {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bee-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">🐝 Bee Shop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about-me.html">About Me</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="about-shop.html">About Shop</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
-                    <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin/admin-dashboard.html">Admin</a></li>
-                </ul>
-            </div>
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container wrap">
+            <div>🐝 Bee Shop — Tự nhiên & an toàn</div>
+            <div><a href="index.html#contact">Liên hệ tư vấn</a></div>
+        </div>
+    </div>
+
+    <!-- Header (giống index) -->
+    <header class="header">
+        <div class="container nav">
+            <a class="brand" href="index.html" aria-label="Bee Shop — Trang chủ">
+                <img class="logo"
+                     src="assets/img/logo.jpg"
+                     alt="Bee Shop"
+                     width="32" height="32"
+                     onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,
+                <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22>
+                    <rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22#ffd54f%22 />
+                    <path d=%27M7 16h18M11 10l10 12M21 10l-10 12%27 stroke=%22#111%22 stroke-width=%223%22 stroke-linecap=%22round%22 />
+                </svg>';">
+                <span class="brand-name">Bee Shop</span>
+            </a>
+            <nav class="menu">
+                <a href="index.html?ctx=home">Trang chủ</a>
+                <a href="products.html?ctx=products">Sản phẩm</a>
+                <a class="active" href="about-shop.html">About Shop</a>
+                <a href="sourcing-quality.html">Sourcing & Quality</a>
+                <a href="branches.html">Branches</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Subnav (6 mục gọn) -->
+    <nav class="subnav">
+        <div class="container sub" id="subnav">
+            <a href="#intro" class="current">Giới thiệu</a>
+            <a href="#vv">Tầm nhìn & Giá trị</a>
+            <a href="#journey">Hành trình</a>
+            <a href="#process">Quy trình & Chất lượng</a>
+            <a href="#team">Đội ngũ & Đối tác</a>
+            <a href="#faq">FAQ & Liên hệ</a>
         </div>
     </nav>
 
-    <!-- Main -->
-    <main class="container py-5">
-        <h1 class="text-center mb-4">🏪 About Shop</h1>
-        <div class="row align-items-center">
-
-            <!-- Hình minh họa -->
-            <div class="col-md-6 mb-4 mb-md-0">
-                <img src="img/beeshop-store.jpg" alt="Bee Shop Store"
-                     class="img-fluid rounded shadow" style="border: 5px solid #fcbf1e;">
-            </div>
-
-            <!-- Nội dung -->
-            <div class="col-md-6">
-                <p class="lead">
-                    <strong>Bee Shop</strong> mang đến các sản phẩm từ ong tự nhiên,
-                    được lựa chọn kỹ càng từ những trang trại mật ong uy tín.
-                </p>
-                <p>
-                    Chúng tôi cam kết đem lại <span class="fw-bold text-warning">chất lượng cao, an toàn và tốt cho sức khỏe</span>
-                    cho mọi khách hàng.
-                    Các sản phẩm nổi bật bao gồm mật ong nguyên chất, sữa ong chúa, phấn hoa ong và nến sáp ong.
-                </p>
-                <div class="mt-3">
-                    <a href="products.html" class="btn btn-warning btn-lg">Xem sản phẩm</a>
+    <!-- 1) INTRO / HERO -->
+    <section id="intro" class="hero">
+        <div class="container">
+            <div class="wrap">
+                <div class="reveal-io">
+                    <span class="badge">Since 2018 • From Hives with Love</span>
+                    <h1>Câu chuyện <span class="kicker">Bee Shop</span></h1>
+                    <p class="lead">Mang vị ngọt lành từ thiên nhiên đến mọi gia đình — minh bạch nguồn gốc, chú trọng bền vững và đặt sức khỏe người dùng lên trước.</p>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+                        <a class="btn" href="products.html">Khám phá sản phẩm</a>
+                        <a class="btn outline" href="#process">Xem quy trình</a>
+                    </div>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+                        <span class="chip">✅ 100% tự nhiên</span>
+                        <span class="chip">🌿 Bền vững</span>
+                        <span class="chip">🔬 Kiểm định chất lượng</span>
+                        <span class="chip">🤝 Đối tác uy tín</span>
+                    </div>
+                </div>
+                <div class="hero-fig reveal-io reveal-delay-1">
+                    <img class="cover-img h340" src="assets/img/shop.jpg"
+                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1400 800%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23fff3d1/></svg>'" alt="">
                 </div>
             </div>
-
         </div>
-    </main>
+    </section>
+
+    <!-- 2) VISION + VALUES (gộp) -->
+    <section id="vv" class="section soft">
+        <div class="container grid grid-2" style="gap:24px">
+            <div class="block reveal-io">
+                <h2>Tầm nhìn & Sứ mệnh</h2>
+                <p class="lead">Trở thành thương hiệu sản phẩm từ ong <b>đáng tin cậy</b> tại Việt Nam; thúc đẩy lối sống tự nhiên & trách nhiệm với môi trường.</p>
+                <ul class="list">
+                    <li>Sản phẩm <b>tự nhiên – an toàn</b>, nhãn rõ ràng.</li>
+                    <li>Hợp tác nông trại, <b>bảo tồn đa dạng sinh học</b>.</li>
+                    <li>Minh bạch hồ sơ lô hàng, <b>kiểm định định kỳ</b>.</li>
+                </ul>
+                <div class="block" style="margin-top:12px;background:#ecfdf5;border-color:#bbf7d0">
+                    <b>Khách hàng nói gì</b><br>
+                    “Mật ong thơm, ngọt thanh; nến sáp cháy êm, mùi tự nhiên. Tư vấn kỹ, giao nhanh.” — <i>Thu Ngân</i>
+                </div>
+            </div>
+            <div class="reveal-io">
+                <h3>Giá trị cốt lõi</h3>
+                <div class="values">
+                    <div class="value"><b>Chất lượng</b><br>Quy trình VSATTP, kiểm soát chỉ số HMF/Diastase.</div>
+                    <div class="value"><b>Khởi nguyên</b><br>Tôn trọng tự nhiên, hạn chế can thiệp thô bạo.</div>
+                    <div class="value"><b>Chăm sóc</b><br>Lắng nghe & đồng hành dài lâu với khách hàng.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3) JOURNEY (timeline + số liệu gộp) -->
+    <section id="journey" class="section">
+        <div class="container grid grid-2" style="gap:24px">
+            <div class="tl block reveal-io">
+                <h2>Hành trình</h2>
+                <div class="tli"><small>2018</small><div>Nhóm bạn yêu ong khởi xướng Bee Shop.</div></div>
+                <div class="tli"><small>2019</small><div>Hợp tác trại đầu tiên ở Tây Nguyên, thử nghiệm lọc thô giữ enzyme.</div></div>
+                <div class="tli"><small>2021</small><div>Mở thêm 5 điểm trại; hoàn thiện bộ tiêu chuẩn VSATTP.</div></div>
+                <div class="tli"><small>2023</small><div>Ra mắt bộ sản phẩm: mật ong, nến sáp, sữa ong chúa, phấn hoa.</div></div>
+                <div class="tli"><small>2025</small><div>5.000+ khách hàng, 15+ đại lý/chi nhánh.</div></div>
+                <div class="stats-band">
+                    <span class="stat"><b>5,000+</b>khách hàng</span>
+                    <span class="stat"><b>20+</b>phiên bản SP</span>
+                    <span class="stat"><b>15+</b>đại lý</span>
+                </div>
+            </div>
+            <div class="reveal-io">
+                <img class="cover-img h340" src="assets/img/vision.jpg"
+                     onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1400 800%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23fff3d1/></svg>'" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- 4) PROCESS + QUALITY (gộp) -->
+    <section id="process" class="section soft">
+        <div class="container">
+            <h2 class="reveal-io">Quy trình & Chất lượng</h2>
+            <div class="steps">
+                <div class="step reveal-io"><div class="num">1</div><b>Thu hoạch</b><br>Khung bánh chín ≥80% nắp sáp.</div>
+                <div class="step reveal-io reveal-delay-1"><div class="num">2</div><b>Lọc thô</b><br>Giữ mùi vị & enzyme, không nhiệt luyện.</div>
+                <div class="step reveal-io reveal-delay-2"><div class="num">3</div><b>Đóng chai</b><br>Chai thủy tinh, nắp an toàn thực phẩm.</div>
+                <div class="step reveal-io"><div class="num">4</div><b>Bảo quản</b><br>Kho mát, chống nắng, vận chuyển nhanh.</div>
+            </div>
+            <div class="grid grid-2" style="gap:24px;margin-top:18px">
+                <div class="block reveal-io">
+                    <b>Chứng nhận & kiểm định</b>
+                    <ul class="list">
+                        <li>VSATTP; kiểm nghiệm chỉ số Moisture, HMF, Diastase.</li>
+                        <li>Kiểm tra đường ngoại lai âm tính từng lô.</li>
+                        <li>Kiểm soát tồn dư kháng sinh (sữa ong chúa).</li>
+                    </ul>
+                </div>
+                <div class="block reveal-io">
+                    <b>Bền vững</b>
+                    <ul class="list">
+                        <li>Bao bì có thể tái chế; mực in gốc nước.</li>
+                        <li>Không lấy quá mùa; bảo vệ đàn ong qua mùa mưa – lạnh.</li>
+                        <li>Tối ưu vận chuyển, trồng bù cây bản địa.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5) TEAM + PARTNERS (gộp) -->
+    <section id="team" class="section">
+        <div class="container">
+            <h2 class="reveal-io">Đội ngũ & Đối tác</h2>
+            <div class="grid grid-2" style="gap:24px">
+                <div>
+                    <div class="team">
+                        <div class="card reveal-io">
+                            <img class="avatar" src="assets/img/team-1.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 360%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="">
+                            <div class="body"><b>Lan Anh</b><br><small>Founder • Quality</small></div>
+                        </div>
+                        <div class="card reveal-io">
+                            <img class="avatar" src="assets/img/team-2.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 360%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'">
+                            <div class="body"><b>Minh Huy</b><br><small>Operations • Farms</small></div>
+                        </div>
+                        <div class="card reveal-io">
+                            <img class="avatar" src="assets/img/team-3.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 360%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'">
+                            <div class="body"><b>Thảo Vy</b><br><small>Brand • Content</small></div>
+                        </div>
+                        <div class="card reveal-io">
+                            <img class="avatar" src="assets/img/team-4.jpg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 600 360%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'">
+                            <div class="body"><b>Tuấn Anh</b><br><small>R&D • Product</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="block reveal-io">
+                        <b>Đối tác nông trại & phòng lab</b>
+                        <p>Hợp tác cùng các hộ nuôi ong ở Tây Nguyên, miền Trung & Đông Nam Bộ; kiểm định tại phòng thí nghiệm đạt chuẩn.</p>
+                    </div>
+                    <div class="logos" style="margin-top:12px">
+                        <div class="logo reveal-io">Farm A</div>
+                        <div class="logo reveal-io reveal-delay-1">Farm B</div>
+                        <div class="logo reveal-io reveal-delay-2">Farm C</div>
+                        <div class="logo reveal-io reveal-delay-1">Lab 1</div>
+                        <div class="logo reveal-io">Lab 2</div>
+                    </div>
+                    <div class="block reveal-io" style="margin-top:12px">
+                        <b>Hợp tác / Tuyển dụng</b><br>
+                        Bạn là đại lý/nhà bán lẻ hoặc trang trại muốn hợp tác? <a href="index.html#contact"><u>Liên hệ Bee Shop</u></a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6) FAQ + CTA -->
+    <section id="faq" class="section soft">
+        <div class="container grid grid-2" style="gap:24px">
+            <div class="accordion reveal-io">
+                <div class="item">
+                    <button class="acc-btn">Bee Shop có bán trực tiếp không?</button>
+                    <div class="acc-panel"><div class="inner">Chúng tôi chủ yếu cung cấp thông tin sản phẩm & kiến thức sử dụng. Vui lòng liên hệ đại lý/chi nhánh để mua hàng.</div></div>
+                </div>
+                <div class="item">
+                    <button class="acc-btn">Sản phẩm có kiểm nghiệm định kỳ?</button>
+                    <div class="acc-panel"><div class="inner">Có. Các chỉ số như Moisture, HMF, Diastase, Reducing Sugars… được kiểm tra tại phòng lab đạt chuẩn.</div></div>
+                </div>
+                <div class="item">
+                    <button class="acc-btn">Có hỗ trợ đổi trả?</button>
+                    <div class="acc-panel"><div class="inner">Đổi trả trong 7 ngày với hàng còn nguyên tem, chưa sử dụng. Vui lòng giữ hóa đơn.</div></div>
+                </div>
+                <div class="item">
+                    <button class="acc-btn">Dị ứng sản phẩm từ ong thì sao?</button>
+                    <div class="acc-panel"><div class="inner">Nếu có tiền sử dị ứng mật ong/phấn hoa… hãy hỏi ý kiến bác sĩ và thử lượng nhỏ trước.</div></div>
+                </div>
+            </div>
+            <div class="block reveal-io">
+                <h3>Liên hệ Bee Shop</h3>
+                <p>Hỗ trợ hợp tác – đại lý – báo giá – chương trình CSR.</p>
+                <div style="display:flex;gap:10px;flex-wrap:wrap">
+                    <a class="btn" href="index.html#contact">Liên hệ ngay</a>
+                    <a class="btn outline" href="products.html">Xem danh mục sản phẩm</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="ft-cols">
+                <div>
+                    <a class="brand" href="index.html" aria-label="Bee Shop — Trang chủ">
+                        <img class="logo"
+                             src="assets/img/logo.jpg"
+                             alt="Bee Shop"
+                             width="32" height="32"
+                             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,
+                        <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22>
+                            <rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22#ffd54f%22 />
+                            <path d=%27M7 16h18M11 10l10 12M21 10l-10 12%27 stroke=%22#111%22 stroke-width=%223%22 stroke-linecap=%22round%22 />
+                        </svg>';">
+                        <span class="brand-name">Bee Shop</span>
+                    </a>
+                    <p class="ft-slogan">Ngọt ngào từ thiên nhiên – Dành cho bạn sự lựa chọn tốt nhất.</p>
+                    <div class="ft-line"></div>
+                    <div class="ft-follow">FOLLOW BEE SHOP</div>
+                    <div class="ft-social">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.6v-2.9h2.8V9a4 4 0 0 1 4.3-4.4c1.2 0 2.5.2 2.5.2v2.7h-1.4c-1.4 0-1.8.9-1.8 1.8v2.1h3.1l-.5 2.9h-2.6v7A10 10 0 0 0 22 12z" /></svg>
+                        </a>
+                        <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21 8.1a7.4 7.4 0 0 1-4-.9v6.6a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.3a3 3 0 1 0 2 2.8V2h3a7.4 7.4 0 0 0 4 3v3.1z" /></svg>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M23.5 7.5a3 3 0 0 0-2.1-2.1C19.5 5 12 5 12 5s-7.5 0-9.4.4A3 3 0 0 0 .5 7.5 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 4.5 3 3 0 0 0 2.1 2.1C4.5 19 12 19 12 19s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1c.3-1.5.5-3 .5-4.5s-.2-3-.5-4.5zM9.5 15.1V8.9l5.8 3.1-5.8 3.1z" /></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="ft-h">VỀ CHÚNG TÔI</h3>
+                    <ul class="ft-links">
+                        <li><a href="index.html#about">Giới thiệu</a></li>
+                        <li><a href="terms.html">Điều khoản</a></li>
+                        <li><a href="privacy.html">Bảo mật</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-h">SẢN PHẨM</h3>
+                    <ul class="ft-links">
+                        <li><a href="products.html#honey">Mật ong nguyên chất</a></li>
+                        <li><a href="products.html#wax">Nến sáp ong</a></li>
+                        <li><a href="products.html#royal">Sữa ong chúa</a></li>
+                        <li><a href="products.html#pollen">Phấn hoa ong</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-h">LIÊN HỆ</h3>
+                    <ul class="ft-links">
+                        <li>📞 <a href="tel:0909123456">0909 123 456</a></li>
+                        <li>✉️ <a href="mailto:contact@beeshop.com">contact@beeshop.com</a></li>
+                        <li>📍 <a href="index.html#contact">Q1, Q7, Thủ Đức</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ft-copy">© 2025 Bee Shop. All rights reserved. • Powered by <a href="#">Bee Shop Team</a></div>
+        </div>
+    </footer>
 
 
-    <footer><p>© 2025 Bee Shop. All rights reserved.</p></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <button id="backTop" aria-label="Back to top"></button>
+
+    <script>
+        // Reveal
+        const io = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target) } }) }, { threshold: .15 });
+        document.querySelectorAll('.reveal-io').forEach(el => io.observe(el));
+
+        // Subnav highlight
+        const links = [...document.querySelectorAll('#subnav a')];
+        const secs = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+        const spy = new IntersectionObserver(es => {
+            es.forEach(e => {
+                if (e.isIntersecting) {
+                    const id = '#' + e.target.id;
+                    links.forEach(a => a.classList.toggle('current', a.getAttribute('href') === id));
+                }
+            });
+        }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+        secs.forEach(s => spy.observe(s));
+
+        // Accordion
+        document.querySelectorAll('.accordion').forEach(acc => {
+            acc.querySelectorAll('.acc-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const p = btn.nextElementSibling, open = p.style.maxHeight;
+                    acc.querySelectorAll('.acc-panel').forEach(x => x.style.maxHeight = null);
+                    p.style.maxHeight = open ? null : (p.scrollHeight + 'px');
+                });
+            });
+        });
+
+        // Back to top
+        const backTop = document.getElementById('backTop');
+        window.addEventListener('scroll', () => { backTop.style.display = window.scrollY > 600 ? 'inline-flex' : 'none' });
+        backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
 </body>
 </html>

@@ -1,0 +1,585 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bee Shop — Chứng nhận | Certificates & COA</title>
+    <meta name="description" content="Chứng nhận kiểm nghiệm và COA theo mã LOT cho các sản phẩm Bee Shop: Moisture, HMF, Diastase, RS, Sucrose, Antibiotics…">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bee: #f7b500;
+            --ink: #111;
+            --muted: #6b7280
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+            color: #1f2937;
+            background: #fff
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: var(--bee);
+            box-shadow: 0 2px 10px rgba(0,0,0,.06)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px
+        }
+
+        .brand {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 800
+        }
+
+            .brand .logo {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                background: linear-gradient(135deg,#ffd54f,#ffeb3b)
+            }
+
+        .menu a {
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            opacity: .92
+        }
+
+            .menu a:hover {
+                background: rgba(255,255,255,.35)
+            }
+
+            .menu a.active {
+                background: rgba(255,255,255,.35)
+            }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(180deg,var(--bee),#ffe8a3);
+            padding: 56px 0
+        }
+
+            .hero .wrap {
+                display: grid;
+                grid-template-columns: 1.2fr .8fr;
+                gap: 24px;
+                align-items: center
+            }
+
+        .badge {
+            display: inline-block;
+            background: #111;
+            color: #fff;
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 12px;
+            margin-bottom: 8px
+        }
+
+        .lead {
+            color: #374151
+        }
+
+        .hero-fig {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0,0,0,.1)
+        }
+
+        .cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .h300 {
+            height: 300px
+        }
+
+        /* Sections / cards */
+        .section {
+            padding: 56px 0
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3,1fr)
+        }
+
+        .soft {
+            background: #fff8e6
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,.06)
+        }
+
+            .card .body {
+                padding: 16px
+            }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border: 1px solid #eee;
+            background: #fff;
+            border-radius: 999px;
+            cursor: pointer
+        }
+
+            .chip.active {
+                background: #111;
+                color: #fff;
+                border-color: #111
+            }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #111;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-weight: 700
+        }
+
+            .btn.outline {
+                background: #fff;
+                color: #111;
+                border: 1px solid #e5e7eb
+            }
+
+        .meta {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 4px
+        }
+
+        .kv {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+            .kv .box {
+                border: 1px solid #eee;
+                border-radius: 12px;
+                padding: 12px
+            }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.4);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px
+        }
+
+            .modal .panel {
+                max-width: 780px;
+                width: 100%;
+                background: #fff;
+                border-radius: 16px;
+                box-shadow: 0 20px 60px rgba(0,0,0,.25);
+                overflow: hidden
+            }
+
+            .modal .hd {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 14px 16px;
+                border-bottom: 1px solid #eee
+            }
+
+            .modal .bd {
+                padding: 16px
+            }
+
+        .close {
+            cursor: pointer;
+            font-weight: 800
+        }
+
+        /* Footer */
+        .footer {
+            background: #121a18;
+            color: #e5e7eb;
+            padding: 28px 0;
+            margin-top: 60px
+        }
+
+        .ft-copy {
+            border-top: 1px solid rgba(255,255,255,.12);
+            margin-top: 12px;
+            padding-top: 12px;
+            text-align: center;
+            color: #cbd5e1
+        }
+
+        /* Reveal */
+        .reveal-io {
+            opacity: 1;
+            transform: none
+        }
+
+        .io-init .reveal-io {
+            opacity: 0;
+            transform: translateY(18px) scale(.98);
+            transition: opacity .6s ease,transform .6s ease
+        }
+
+            .io-init .reveal-io.show {
+                opacity: 1;
+                transform: none
+            }
+
+        @media (max-width:980px) {
+            .hero .wrap, .grid-3 {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+    <script>document.documentElement.classList.add('io-init');</script>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav">
+            <a class="brand" href="index.html" aria-label="Bee Shop — Trang chủ">
+                <img class="logo"
+                     src="assets/img/logo.jpg"
+                     alt="Bee Shop"
+                     width="32" height="32"
+                     onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,
+                <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22>
+                    <rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22#ffd54f%22 />
+                    <path d=%27M7 16h18M11 10l10 12M21 10l-10 12%27 stroke=%22#111%22 stroke-width=%223%22 stroke-linecap=%22round%22 />
+                </svg>';">
+                <span class="brand-name">Bee Shop</span>
+            </a>
+            <nav class="menu">
+                <a href="about-shop.html">About</a>
+                <a href="products.html">Products</a>
+                <a href="about-shop.html">About Shop</a>
+                <a href="sourcing-quality.html">Sourcing & Quality</a>
+                <a href="branches.html">Branches</a>
+                <a href="blog/index.html">Blog</a>
+       
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="wrap">
+                <div class="reveal-io">
+                    <span class="badge">QUALITY • COA</span>
+                    <h1>Chứng nhận kiểm nghiệm & COA theo mã LOT</h1>
+                    <p class="lead">Bee Shop kiểm nghiệm định kỳ: <b>Moisture, HMF, Diastase, Reducing Sugars, Sucrose, Antibiotics…</b> tại phòng thí nghiệm đạt chuẩn.</p>
+                    <div class="chips" id="chips">
+                        <span class="chip active" data-tag="all">Tất cả</span>
+                        <span class="chip" data-tag="honey">Honey</span>
+                        <span class="chip" data-tag="wax">Wax Candle</span>
+                        <span class="chip" data-tag="royal">Royal Jelly</span>
+                        <span class="chip" data-tag="pollen">Bee Pollen</span>
+                    </div>
+                </div>
+                <div class="hero-fig reveal-io">
+                    <img class="cover h300" src="assets/img/quality/lab.jpg"
+                         onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 700%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23fff3d1/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%23936f00%22 font-size=%2236%22 font-family=%22Inter%22>Bee Shop • Lab & Certificates</text></svg>'" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRA LOT -->
+    <section id="lot" class="section soft">
+        <div class="container">
+            <div class="card reveal-io">
+                <div class="body">
+                    <h2 style="margin:0 0 8px">Tra cứu mã LOT</h2>
+                    <p class="muted" style="margin-top:-4px">Nhập mã LOT in trên nhãn/đáy hộp để xem chứng nhận tương ứng.</p>
+                    <div class="grid" style="grid-template-columns:1fr auto;gap:12px">
+                        <input id="q" class="input" placeholder="VD: HNY2403-01, WAX2406-03…">
+                        <button id="btnSearch" class="btn">Tra cứu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DANH SÁCH CHỨNG NHẬN -->
+    <section class="section">
+        <div class="container">
+            <h2 class="reveal-io" style="margin:0 0 14px">Danh sách chứng nhận</h2>
+            <div id="cards" class="grid grid-3"></div>
+        </div>
+    </section>
+
+    <!-- MODAL CHI TIẾT -->
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Chi tiết COA">
+        <div class="panel">
+            <div class="hd">
+                <div id="mTitle" style="font-weight:800">COA Detail</div>
+                <div class="close" id="mClose">✕</div>
+            </div>
+            <div class="bd">
+                <div id="mMeta" class="muted" style="margin-bottom:12px"></div>
+                <div class="kv" id="mKv"></div>
+                <div style="display:flex;gap:10px;margin-top:14px">
+                    <a id="mPdf" class="btn" target="_blank" rel="noopener">Tải PDF</a>
+                    <a class="btn outline" id="mClose2">Đóng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="ft-cols">
+                <div>
+                    <a class="brand" href="index.html" aria-label="Bee Shop — Trang chủ">
+                        <img class="logo"
+                             src="assets/img/logo.jpg"
+                             alt="Bee Shop"
+                             width="32" height="32"
+                             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,
+                        <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22>
+                            <rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22#ffd54f%22 />
+                            <path d=%27M7 16h18M11 10l10 12M21 10l-10 12%27 stroke=%22#111%22 stroke-width=%223%22 stroke-linecap=%22round%22 />
+                        </svg>';">
+                        <span class="brand-name">Bee Shop</span>
+                    </a>
+                    <p class="ft-slogan">Ngọt ngào từ thiên nhiên – Dành cho bạn sự lựa chọn tốt nhất.</p>
+                    <div class="ft-line"></div>
+                    <div class="ft-follow">FOLLOW BEE SHOP</div>
+                    <div class="ft-social">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.6v-2.9h2.8V9a4 4 0 0 1 4.3-4.4c1.2 0 2.5.2 2.5.2v2.7h-1.4c-1.4 0-1.8.9-1.8 1.8v2.1h3.1l-.5 2.9h-2.6v7A10 10 0 0 0 22 12z" /></svg>
+                        </a>
+                        <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21 8.1a7.4 7.4 0 0 1-4-.9v6.6a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.3a3 3 0 1 0 2 2.8V2h3a7.4 7.4 0 0 0 4 3v3.1z" /></svg>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M23.5 7.5a3 3 0 0 0-2.1-2.1C19.5 5 12 5 12 5s-7.5 0-9.4.4A3 3 0 0 0 .5 7.5 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 4.5 3 3 0 0 0 2.1 2.1C4.5 19 12 19 12 19s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1c.3-1.5.5-3 .5-4.5s-.2-3-.5-4.5zM9.5 15.1V8.9l5.8 3.1-5.8 3.1z" /></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="ft-h">VỀ CHÚNG TÔI</h3>
+                    <ul class="ft-links">
+                        <li><a href="index.html#about">Giới thiệu</a></li>
+                        <li><a href="terms.html">Điều khoản</a></li>
+                        <li><a href="privacy.html">Bảo mật</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-h">SẢN PHẨM</h3>
+                    <ul class="ft-links">
+                        <li><a href="products.html#honey">Mật ong nguyên chất</a></li>
+                        <li><a href="products.html#wax">Nến sáp ong</a></li>
+                        <li><a href="products.html#royal">Sữa ong chúa</a></li>
+                        <li><a href="products.html#pollen">Phấn hoa ong</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-h">LIÊN HỆ</h3>
+                    <ul class="ft-links">
+                        <li>📞 <a href="tel:0909123456">0909 123 456</a></li>
+                        <li>✉️ <a href="mailto:contact@beeshop.com">contact@beeshop.com</a></li>
+                        <li>📍 <a href="index.html#contact">Q1, Q7, Thủ Đức</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ft-copy">© 2025 Bee Shop. All rights reserved. • Powered by <a href="#">Bee Shop Team</a></div>
+        </div>
+    </footer>
+
+
+    <script>
+        // ----- data mẫu (thay bằng dữ liệu thật nếu có) -----
+        const CERTS = [
+            {
+                product: 'Honey Bottle', tag: 'honey', lot: 'HNY2403-01', date: '2025-03-12', lab: 'ABC Lab',
+                params: { Moisture: '17.6 %', HMF: '12.4 mg/kg', Diastase: '15.8 DN', 'Reducing Sugars': '72.1 %', Sucrose: '< 5 %', Antibiotics: 'ND' },
+                pdf: 'assets/certificates/COA_HNY2403-01.pdf'
+            },
+            {
+                product: 'Bee Wax Candle', tag: 'wax', lot: 'WAX2406-03', date: '2025-06-22', lab: 'ABC Lab',
+                params: { 'Melting Point': '63.4 °C', 'Impurities': 'Pass', Color: 'Light Yellow' },
+                pdf: 'assets/certificates/COA_WAX2406-03.pdf'
+            },
+            {
+                product: 'Royal Jelly', tag: 'royal', lot: 'RJL2404-02', date: '2025-04-05', lab: 'XYZ Lab',
+                params: { '10-HDA': '2.1 %', Moisture: '64 %', Protein: '12 %' },
+                pdf: 'assets/certificates/COA_RJL2404-02.pdf'
+            },
+            {
+                product: 'Bee Pollen', tag: 'pollen', lot: 'POL2402-05', date: '2025-02-18', lab: 'XYZ Lab',
+                params: { Moisture: '7.5 %', Ash: '2.3 %', 'Microbiological': 'Pass' },
+                pdf: 'assets/certificates/COA_POL2402-05.pdf'
+            }
+        ];
+
+        // ----- render cards -----
+        const $cards = document.getElementById('cards');
+        function render(list) {
+            $cards.innerHTML = '';
+            if (!list.length) {
+                $cards.innerHTML = '<div class="muted">Không tìm thấy chứng nhận phù hợp.</div>';
+                return;
+            }
+            list.forEach(c => {
+                const el = document.createElement('article');
+                el.className = 'card reveal-io';
+                el.dataset.tag = c.tag;
+                el.innerHTML = `
+            <div class="body">
+              <h3 style="margin:0">${c.product}</h3>
+              <div class="meta">LOT: <b>${c.lot}</b> • Ngày: ${c.date} • Lab: ${c.lab}</div>
+              <div class="chips" style="margin-top:10px">
+                <span class="chip">${c.tag}</span>
+                <span class="chip">COA</span>
+              </div>
+              <div style="display:flex;gap:10px;margin-top:12px">
+                <button class="btn" data-open="${c.lot}">Xem chi tiết</button>
+                <a class="btn outline" href="${c.pdf}" target="_blank" rel="noopener">Tải PDF</a>
+              </div>
+            </div>`;
+                $cards.appendChild(el);
+            });
+            observeReveal();
+        }
+
+        // ----- filter theo chip & query -----
+        function applyFilter() {
+            const activeTag = document.querySelector('.chip.active')?.dataset.tag || 'all';
+            const q = (document.getElementById('q').value || '').trim().toLowerCase();
+            const list = CERTS.filter(c => {
+                const matchTag = activeTag === 'all' || c.tag === activeTag;
+                const str = (c.product + ' ' + c.lot).toLowerCase();
+                const matchQ = !q || str.includes(q);
+                return matchTag && matchQ;
+            });
+            render(list);
+        }
+        document.getElementById('chips').addEventListener('click', e => {
+            const b = e.target.closest('.chip'); if (!b) return;
+            document.querySelectorAll('#chips .chip').forEach(x => x.classList.remove('active'));
+            b.classList.add('active'); applyFilter();
+        });
+        document.getElementById('btnSearch').addEventListener('click', applyFilter);
+        document.getElementById('q').addEventListener('keydown', e => { if (e.key === 'Enter') applyFilter(); });
+
+        // ----- đọc ?lot= từ URL để tự điền -----
+        const params = new URLSearchParams(location.search);
+        const lotParam = params.get('lot');
+        if (lotParam) { document.getElementById('q').value = lotParam; }
+
+        // ----- modal chi tiết -----
+        const $modal = document.getElementById('modal');
+        const $mTitle = document.getElementById('mTitle');
+        const $mMeta = document.getElementById('mMeta');
+        const $mKv = document.getElementById('mKv');
+        const $mPdf = document.getElementById('mPdf');
+        function openModal(coa) {
+            $mTitle.textContent = `${coa.product} • LOT ${coa.lot}`;
+            $mMeta.textContent = `Ngày: ${coa.date} • Lab: ${coa.lab}`;
+            $mKv.innerHTML = '';
+            Object.entries(coa.params || {}).forEach(([k, v]) => {
+                const d = document.createElement('div');
+                d.className = 'box';
+                d.innerHTML = `<div class="muted" style="font-size:12px">${k}</div><div style="font-weight:700">${v}</div>`;
+                $mKv.appendChild(d);
+            });
+            // nếu chưa có PDF thật, để link mẫu PDF data-uri (tiny)
+            $mPdf.href = coa.pdf || 'data:application/pdf;base64,JVBERi0xLjQKJcKlwrHDqwoKMSAwIG9iago8PC9UeXBlIC9DYXRhbG9nL1BhZ2VzIDIgMCBSPj4KZW5kb2JqCjIgMCBvYmoKPDwvVHlwZSAvUGFnZXMvS2lkcyBbMyAwIFJdL0NvdW50IDE+PgplbmRvYmoKMyAwIG9iago8PC9UeXBlIC9QYWdlL1BhcmVudCAyIDAgUi9NZWRpYUJveCBbMCAwIDU5NSAODQBdL0NvbnRlbnRzIDQgMCBSL1Jlc291cmNlcyA8PC9Gb250IDw8L0YxIDUgMCBSPj4+Pj4+PgplbmRvYmoKNCAwIG9iago8PC9MZW5ndGggNjk+PgpzdHJlYW0KQlQKL0YxIDEyIFRmCjUwIDc1MCBUZAooQ0lSUyB0ZW1wLVBERiBzYW1wbGUpIFQKRVQKZW5kc3RyZWFtCmVuZG9iago1IDAgb2JqCjw8L1R5cGUgL0ZvbnQvU3VidHlwZSAvVHlwZTEvTmFtZSAvRjEvQmFzZUZvbnQgL0hlbHZldGljYT4+CmVuZG9iagp4cmVmCjAgNgowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDA5NzMgMDAwMDAgbiAKMDAwMDAwMDE1MCAwMDAwMCBuIAowMDAwMDAwMjQ5IDAwMDAwIG4gCjAwMDAwMDA0NzEgMDAwMDAgbiAKMDAwMDAwMDYzNSAwMDAwMCBuIAp0cmFpbGVyCjw8L1Jvb3QgMSAwIFIvU2l6ZSA2Pj4Kc3RhcnR4cmVmCjgwNQolJUVPRgo=';
+            $modal.style.display = 'flex';
+        }
+        document.addEventListener('click', e => {
+            const btn = e.target.closest('button[data-open]'); if (!btn) return;
+            const lot = btn.dataset.open;
+            const coa = CERTS.find(x => x.lot === lot); if (coa) openModal(coa);
+        });
+        document.getElementById('mClose').onclick = () => ($modal.style.display = 'none');
+        document.getElementById('mClose2').onclick = () => ($modal.style.display = 'none');
+        $modal.addEventListener('click', e => { if (e.target === $modal) $modal.style.display = 'none'; });
+
+        // ----- reveal on scroll -----
+        function observeReveal() {
+            const io = new IntersectionObserver(es => {
+                es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+            }, { threshold: .15 });
+            document.querySelectorAll('.reveal-io').forEach(el => io.observe(el));
+        }
+
+        // init
+        applyFilter();            // render lần đầu
+        if (lotParam) applyFilter();
+        observeReveal();
+    </script>
+</body>
+</html>

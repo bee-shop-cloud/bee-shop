@@ -1,0 +1,1058 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bee Shop — Chi nhánh & Đại lý</title>
+    <meta name="description" content="Tìm chi nhánh Bee Shop gần bạn: địa chỉ, giờ mở cửa, dịch vụ, bản đồ chỉ đường. Lọc theo khu vực & tìm nhanh." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add('io-init');</script>
+    <style>
+        :root {
+            --bee: #f7b500; /* vàng mật ong */
+            --bee-2: #ffe08a; /* vàng nhạt cho underline */
+            --ink: #111;
+            --muted: #6b7280;
+            --teal: #0f746c; /* xanh lá subnav */
+            --line: #e5e7eb;
+            --bg: #fff;
+            --card: #fff;
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+            background: #fff;
+            color: #1f2937
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        /* Topbar */
+        .topbar {
+            background: #111;
+            color: #e5e7eb;
+            font-size: 13px
+        }
+
+            .topbar .wrap {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 36px
+            }
+
+            .topbar a {
+                color: #fff;
+                opacity: .95
+            }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            background: var(--bee);
+            box-shadow: 0 2px 10px rgba(0,0,0,.06)
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px
+        }
+
+        .brand {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 800
+        }
+
+            .brand .logo {
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                background: linear-gradient(135deg,#ffd54f,#ffeb3b)
+            }
+
+        .menu {
+            display: flex;
+            gap: 18px
+        }
+
+            .menu a {
+                padding: 10px 12px;
+                border-radius: 10px;
+                font-weight: 700
+            }
+
+                .menu a:hover, .menu a.active {
+                    background: rgba(255,255,255,.35)
+                }
+
+        /* Subnav xanh lá */
+        .subnav {
+            position: sticky;
+            top: 64px;
+            z-index: 59;
+            background: var(--teal)
+        }
+
+        .sub {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            height: 56px;
+            overflow-x: auto
+        }
+
+            .sub a, .sub a:visited {
+                color: #fff;
+                opacity: .95;
+                font-weight: 800;
+                white-space: nowrap
+            }
+
+                .sub a.current {
+                    border-bottom: 3px solid var(--bee-2);
+                    padding-bottom: 3px;
+                    border-radius: 0;
+                    background: transparent
+                }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            isolation: isolate
+        }
+
+            .hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(1200px 420px at 10% -10%, #fff6cc 0%, transparent 55%), linear-gradient(180deg,var(--bee) 0%, #fff2bf 100%);
+                z-index: -1;
+            }
+
+            .hero .wrap {
+                display: grid;
+                grid-template-columns: 1.15fr .85fr;
+                gap: 28px;
+                align-items: center;
+                padding: 56px 0 46px
+            }
+
+        .badge {
+            display: inline-flex;
+            gap: 6px;
+            align-items: center;
+            background: #111;
+            color: #fff;
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 12px
+        }
+
+        .lead {
+            color: #374151
+        }
+
+        .hero-fig {
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255,255,255,.35);
+            box-shadow: 0 12px 30px rgba(0,0,0,.08)
+        }
+
+        .cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .h320 {
+            height: 320px
+        }
+
+        .chip {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 8px 10px;
+            border-radius: 12px;
+            box-shadow: 0 6px 14px rgba(0,0,0,.06)
+        }
+
+        .chips {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px
+        }
+
+        /* Sections & layout */
+        section {
+            scroll-margin-top: 140px
+        }
+        /* bù trừ sticky header + subnav */
+        .section {
+            padding: 64px 0
+        }
+
+        .soft {
+            background: #fff8e6
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+            gap: 22px;
+            align-items: start
+        }
+
+        /* Cards & bits */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,.06)
+        }
+
+            .card .body {
+                padding: 14px
+            }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #111;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-weight: 800
+        }
+
+            .btn.outline {
+                background: #fff;
+                color: #111;
+                border: 1px solid var(--line)
+            }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid #eee;
+            border-radius: 999px;
+            padding: 6px 9px;
+            background: #fff
+        }
+
+        /* Map */
+        .mapbox {
+            position: sticky;
+            top: 120px;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,.06);
+            background: #fff
+        }
+
+            .mapbox header {
+                padding: 12px 14px;
+                border-bottom: 1px solid #eee;
+                font-weight: 800
+            }
+
+            .mapbox iframe {
+                width: 100%;
+                height: 520px;
+                border: 0;
+                display: block
+            }
+
+            .mapbox .info {
+                padding: 12px 14px
+            }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center
+        }
+
+        .seg {
+            display: flex;
+            gap: 8px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            padding: 6px;
+            border-radius: 999px
+        }
+
+            .seg button {
+                border: 0;
+                background: transparent;
+                padding: 8px 12px;
+                border-radius: 999px;
+                font-weight: 800;
+                cursor: pointer
+            }
+
+                .seg button.active {
+                    background: #111;
+                    color: #fff
+                }
+
+        .search {
+            flex: 1;
+            min-width: 220px
+        }
+
+        .input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px
+        }
+
+        /* List */
+        .list {
+            display: grid;
+            gap: 14px
+        }
+
+        article.branch {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 12px;
+            padding: 12px
+        }
+
+        .thumb {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            background: #f6f6f6;
+            border-radius: 12px
+        }
+
+        .b-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px
+        }
+
+        .meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px
+        }
+
+        .btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 6px
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-weight: 800
+        }
+
+        .open {
+            background: #ecfdf5;
+            border: 1px solid #bbf7d0;
+            color: #065f46
+        }
+
+        .closed {
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            color: #991b1b
+        }
+
+        /* Services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 14px
+        }
+
+        .svc {
+            border: 1px solid #eee;
+            border-radius: 14px;
+            padding: 14px;
+            background: #fff;
+            font-weight: 700
+        }
+
+        /* FAQ */
+        .faq {
+            border: 1px solid #eee;
+            border-radius: 14px;
+            overflow: hidden
+        }
+
+            .faq .item {
+                border-top: 1px solid #eee
+            }
+
+                .faq .item:first-child {
+                    border-top: 0
+                }
+
+        .acc-btn {
+            width: 100%;
+            padding: 15px;
+            text-align: left;
+            font-weight: 800;
+            background: #fff;
+            cursor: pointer
+        }
+
+        .acc-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease;
+            background: #fff
+        }
+
+            .acc-panel .inner {
+                padding: 0 15px 15px
+            }
+
+        /* Stats */
+        .stats {
+            background: var(--bee);
+            color: #111;
+            padding: 26px 0;
+            margin: 40px 0
+        }
+
+            .stats .row {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: 12px;
+                text-align: center
+            }
+
+        .num {
+            font-size: 30px;
+            font-weight: 800
+        }
+
+        /* Footer */
+        .footer {
+            background: #121a18;
+            color: #e5e7eb;
+            padding: 28px 0;
+            margin-top: 60px
+        }
+
+        .ft-cols {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr 1fr;
+            gap: 28px
+        }
+
+        .ft-logo {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 10px
+        }
+
+        .bee-dot {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,#ffd54f,#ffb300)
+        }
+
+        .ft-h {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #fff
+        }
+
+        .ft-links {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+            .ft-links li {
+                margin: 8px 0
+            }
+
+            .ft-links a {
+                color: #e5e7eb
+            }
+
+                .ft-links a:hover {
+                    color: #fff;
+                    text-decoration: underline
+                }
+
+        .ft-copy {
+            border-top: 1px solid rgba(255,255,255,.12);
+            margin-top: 18px;
+            padding-top: 14px;
+            font-size: 13px;
+            color: #cbd5e1;
+            text-align: center
+        }
+
+        /* Back to top + reveal */
+        #backTop {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            display: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 999px;
+            background: #0fb8ae;
+            color: #fff;
+            font-weight: 800;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,.18)
+        }
+
+            #backTop::before {
+                content: "↑";
+                font-size: 18px
+            }
+
+        .reveal-io {
+            opacity: 1;
+            transform: none
+        }
+
+        .io-init .reveal-io {
+            opacity: 0;
+            transform: translateY(18px) scale(.98);
+            transition: opacity .6s ease,transform .6s ease
+        }
+
+            .io-init .reveal-io.show {
+                opacity: 1;
+                transform: none
+            }
+
+        .d1 {
+            transition-delay: .1s
+        }
+
+        .d2 {
+            transition-delay: .2s
+        }
+
+        .d3 {
+            transition-delay: .3s
+        }
+
+        /* Responsive */
+        @media (max-width:1100px) {
+            .hero .wrap, .layout {
+                grid-template-columns: 1fr
+            }
+
+            .mapbox {
+                position: static
+            }
+
+                .mapbox iframe {
+                    height: 420px
+                }
+
+            .services {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .stats .row {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .ft-cols {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media (max-width:720px) {
+            article.branch {
+                grid-template-columns: 1fr
+            }
+
+            .meta {
+                grid-template-columns: 1fr
+            }
+
+            .services {
+                grid-template-columns: 1fr
+            }
+
+            .ft-cols {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container wrap">
+            <div>🐝 Bee Shop — Hệ thống cửa hàng chính hãng</div>
+            <div><a href="index.html#contact">Cần hỗ trợ? Liên hệ ngay</a></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav">
+            <a class="brand" href="index.html" aria-label="Bee Shop — Trang chủ">
+                <img class="logo"
+                     src="assets/img/logo.jpg"
+                     alt="Bee Shop"
+                     width="32" height="32"
+                     onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,
+                <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22>
+                    <rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22#ffd54f%22 />
+                    <path d=%27M7 16h18M11 10l10 12M21 10l-10 12%27 stroke=%22#111%22 stroke-width=%223%22 stroke-linecap=%22round%22 />
+                </svg>';">
+                <span class="brand-name">Bee Shop</span>
+            </a>
+            <nav class="menu" aria-label="Primary">
+                <a href="index.html?ctx=home">Trang chủ</a>
+                <a href="products.html?ctx=products">Sản phẩm</a>
+                <a href="about-shop.html">About Shop</a>
+                <a href="sourcing-quality.html">Sourcing & Quality</a>
+                <a class="active" href="branches.html" aria-current="page">Branches</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Subnav xanh lá -->
+    <nav class="subnav">
+        <div class="container sub" id="subnav">
+            <a href="#overview" class="current">Tổng quan</a>
+            <a href="#list">Danh sách & Bản đồ</a>
+            <a href="#services">Dịch vụ</a>
+            <a href="#faq">FAQ</a>
+            <a href="#stats">Số liệu</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="overview" class="hero">
+        <div class="container wrap">
+            <div class="reveal-io">
+                <span class="badge">STORE LOCATOR</span>
+                <h1>Hệ thống <b>chi nhánh Bee Shop</b></h1>
+                <p class="lead">Tìm cửa hàng gần bạn — xem địa chỉ, giờ mở cửa theo thời gian thực, dịch vụ và chỉ đường.</p>
+                <div class="chips">
+                    <span class="chip">✅ 9:00–20:30 mỗi ngày</span>
+                    <span class="chip">🅿️ Có chỗ gửi xe</span>
+                    <span class="chip">💳 Thanh toán thẻ/QR</span>
+                    <span class="chip">↩️ Đổi trả 7 ngày</span>
+                </div>
+            </div>
+            <div class="hero-fig reveal-io d1">
+                <img class="cover h320" src="assets/img/shop.jpg"
+                     onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1400 800%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23fff3d1/><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%23936f00%22 font-size=%2242%22 font-family=%22Inter%22>Bee Shop Branches</text></svg>'" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- LIST + MAP -->
+    <section id="list" class="section">
+        <div class="container layout">
+            <!-- MAP -->
+            <aside class="mapbox reveal-io">
+                <header>📍 Bản đồ chi nhánh</header>
+                <iframe id="mapFrame" title="Bee Shop Map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.451!2d106.700!3d10.776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3fb94b!2zUXVhbiAxLCBIQ00!5e0!3m2!1svi!2s!4v1700000000000"></iframe>
+                <div class="info">
+                    <div id="mapTitle"><b>Bee Shop</b></div>
+
+                </div>
+            </aside>
+
+            <!-- LIST + FILTERS -->
+            <div>
+                <div class="card reveal-io d1">
+                    <div class="body">
+                        <div class="filters">
+                            <div class="seg" role="tablist" aria-label="Khu vực">
+                                <button class="active" role="tab" aria-selected="true" data-region="all">Tất cả</button>
+                                <button role="tab" aria-selected="false" data-region="q1">Quận 1</button>
+                                <button role="tab" aria-selected="false" data-region="q7">Quận 7</button>
+                                <button role="tab" aria-selected="false" data-region="td">TP. Thủ Đức</button>
+                            </div>
+                            <div class="search"><input id="kw" class="input" placeholder="Tìm theo địa chỉ, từ khóa..." aria-label="Tìm kiếm chi nhánh"></div>
+                            <span class="tag">🕘 9:00–20:30</span>
+                            <span class="tag">💳 Thẻ/QR</span>
+                            <span class="tag">🅿️ Có chỗ gửi xe</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list" id="branchList">
+                    <!-- Q1 -->
+                    <article id="branch-q1" class="card branch reveal-io"
+                             data-region="q1" data-open="9:00" data-close="20:30"
+                             data-keywords="quan 1 q1 ben thanh trung tam cho ben thanh">
+                        <img class="thumb" src="assets/img/bee/branch-q1.jpg"
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="Bee Shop Quận 1">
+                        <div class="body">
+                            <div class="b-head">
+                                <h3 style="margin:0">Bee Shop — Quận 1</h3>
+                                <span class="status" data-status>…</span>
+                            </div>
+                            <div class="meta">
+                                <div>📍 123 Ong Vàng, P. Bến Nghé, Q1</div>
+                                <div>🕘 9:00 – 20:30 (T2–CN)</div>
+                            </div>
+                            <p class="muted" style="margin:2px 0 6px">Ngay chợ Bến Thành — có chỗ đậu xe máy</p>
+                            <div class="btns">
+                                <span class="tag">☎ <a href="tel:0909123456">0909 123 456</a></span>
+                                <a class="btn outline goto" data-map="map-q1">Bản đồ</a>
+                                <a class="btn" target="_blank" href="https://maps.google.com/?q=123%20Ong%20V%C3%A0ng%2C%20Q1">Chỉ đường</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Q7 -->
+                    <article id="branch-q7" class="card branch reveal-io d1"
+                             data-region="q7" data-open="9:00" data-close="20:30"
+                             data-keywords="quan 7 q7 phu my hung honey park">
+                        <img class="thumb" src="assets/img/bee/branch-q7.jpg"
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="Bee Shop Quận 7">
+                        <div class="body">
+                            <div class="b-head">
+                                <h3 style="margin:0">Bee Shop — Quận 7</h3>
+                                <span class="status" data-status>…</span>
+                            </div>
+                            <div class="meta">
+                                <div>📍 45 Honey Park, Phú Mỹ Hưng, Q7</div>
+                                <div>🕘 9:00 – 20:30 (T2–CN)</div>
+                            </div>
+                            <p class="muted" style="margin:2px 0 6px">Không gian thử nếm & góc quà tặng</p>
+                            <div class="btns">
+                                <span class="tag">☎ <a href="tel:0909222333">0909 222 333</a></span>
+                                <a class="btn outline goto" data-map="map-q7">Bản đồ</a>
+                                <a class="btn" target="_blank" href="https://maps.google.com/?q=45%20Honey%20Park%2C%20Q7">Chỉ đường</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Thủ Đức -->
+                    <article id="branch-td" class="card branch reveal-io d2"
+                             data-region="td" data-open="9:00" data-close="20:30"
+                             data-keywords="thu duc tp thu duc bee street ktx khu cong nghe cao">
+                        <img class="thumb" src="assets/img/bee/branch-td.jpg"
+                             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect width=%22100%25%22 height=%22100%25%22 fill=%23f6f6f6/></svg>'" alt="Bee Shop Thủ Đức">
+                        <div class="body">
+                            <div class="b-head">
+                                <h3 style="margin:0">Bee Shop — TP. Thủ Đức</h3>
+                                <span class="status" data-status>…</span>
+                            </div>
+                            <div class="meta">
+                                <div>📍 88 Bee Street, P. Linh Trung, TP. Thủ Đức</div>
+                                <div>🕘 9:00 – 20:30 (T2–CN)</div>
+                            </div>
+                            <p class="muted" style="margin:2px 0 6px">Gần Khu Công Nghệ Cao — có giao nhanh nội khu</p>
+                            <div class="btns">
+                                <span class="tag">☎ <a href="tel:0909444555">0909 444 555</a></span>
+                                <a class="btn outline goto" data-map="map-td">Bản đồ</a>
+                                <a class="btn" target="_blank" href="https://maps.google.com/?q=88%20Bee%20Street%2C%20Thu%20Duc">Chỉ đường</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section soft">
+        <div class="container">
+            <h2 class="reveal-io">Dịch vụ tại cửa hàng</h2>
+            <p class="lead reveal-io">Áp dụng tại tất cả chi nhánh Bee Shop</p>
+            <div class="services">
+                <div class="svc reveal-io">🧪 Thử nếm mật ong</div>
+                <div class="svc reveal-io d1">🎁 Gói quà & thiệp miễn phí</div>
+                <div class="svc reveal-io d2">🚚 Giao nhanh nội thành</div>
+                <div class="svc reveal-io d3">🔄 Đổi trả trong 7 ngày</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+        <div class="container" style="display:grid;grid-template-columns:1.1fr .9fr;gap:22px">
+            <div>
+                <h2 class="reveal-io">Câu hỏi thường gặp</h2>
+                <div class="faq reveal-io">
+                    <div class="item">
+                        <button class="acc-btn">Chi nhánh có chỗ gửi xe không?</button>
+                        <div class="acc-panel"><div class="inner">Có chỗ đậu xe máy tại tất cả chi nhánh. Quận 1 có bãi gửi ô tô đối diện (tính phí theo giờ).</div></div>
+                    </div>
+                    <div class="item">
+                        <button class="acc-btn">Có thanh toán thẻ/QR không?</button>
+                        <div class="acc-panel"><div class="inner">Chấp nhận tiền mặt, thẻ nội địa/quốc tế và chuyển khoản/QR.</div></div>
+                    </div>
+                    <div class="item">
+                        <button class="acc-btn">Mua online lấy tại cửa hàng được không?</button>
+                        <div class="acc-panel"><div class="inner">Được. Chọn “Nhận tại cửa hàng” và ghi chú chi nhánh khi đặt hàng.</div></div>
+                    </div>
+                    <div class="item">
+                        <button class="acc-btn">Thời gian cao điểm nên đi lúc nào?</button>
+                        <div class="acc-panel"><div class="inner">Cuối tuần 16:00–19:00 thường đông. Bạn có thể ghé trước 16:00 để trải nghiệm thoải mái hơn.</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card reveal-io">
+                <div class="body">
+                    <h3 style="margin-top:0">Bạn cần tư vấn nhanh?</h3>
+                    <p class="muted" style="margin:6px 0 14px">Gọi hotline hoặc nhắn cho Bee Shop, tụi mình phản hồi trong 24h.</p>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                        <a class="btn" href="tel:0909123456">📞 0909 123 456</a>
+                        <a class="btn outline" href="index.html#contact">✉️ Gửi yêu cầu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section id="stats" class="stats">
+        <div class="container">
+            <div class="row">
+                <div class="reveal-io"><div class="num">15+</div>Đại lý/Chi nhánh</div>
+                <div class="reveal-io d1"><div class="num">5,000+</div>Khách hàng</div>
+                <div class="reveal-io d2"><div class="num">20+</div>Sản phẩm/phiên bản</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="ft-cols">
+                <div>
+                    <a class="brand" href="index.html" aria-label="Bee Shop — Trang chủ">
+                        <img class="logo"
+                             src="assets/img/logo.jpg"
+                             alt="Bee Shop"
+                             width="32" height="32"
+                             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,
+                        <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22>
+                            <rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22#ffd54f%22 />
+                            <path d=%27M7 16h18M11 10l10 12M21 10l-10 12%27 stroke=%22#111%22 stroke-width=%223%22 stroke-linecap=%22round%22 />
+                        </svg>';">
+                        <span class="brand-name">Bee Shop</span>
+                    </a>
+                    <p class="ft-slogan">Ngọt ngào từ thiên nhiên – Dành cho bạn sự lựa chọn tốt nhất.</p>
+                    <div class="ft-line"></div>
+                    <div class="ft-follow">FOLLOW BEE SHOP</div>
+                    <div class="ft-social">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.6v-2.9h2.8V9a4 4 0 0 1 4.3-4.4c1.2 0 2.5.2 2.5.2v2.7h-1.4c-1.4 0-1.8.9-1.8 1.8v2.1h3.1l-.5 2.9h-2.6v7A10 10 0 0 0 22 12z" /></svg>
+                        </a>
+                        <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M21 8.1a7.4 7.4 0 0 1-4-.9v6.6a6 6 0 1 1-6-6c.3 0 .7 0 1 .1v3.3a3 3 0 1 0 2 2.8V2h3a7.4 7.4 0 0 0 4 3v3.1z" /></svg>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M23.5 7.5a3 3 0 0 0-2.1-2.1C19.5 5 12 5 12 5s-7.5 0-9.4.4A3 3 0 0 0 .5 7.5 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 4.5 3 3 0 0 0 2.1 2.1C4.5 19 12 19 12 19s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1c.3-1.5.5-3 .5-4.5s-.2-3-.5-4.5zM9.5 15.1V8.9l5.8 3.1-5.8 3.1z" /></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="ft-h">VỀ CHÚNG TÔI</h3>
+                    <ul class="ft-links">
+                        <li><a href="index.html#about">Giới thiệu</a></li>
+                        <li><a href="terms.html">Điều khoản</a></li>
+                        <li><a href="privacy.html">Bảo mật</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-h">SẢN PHẨM</h3>
+                    <ul class="ft-links">
+                        <li><a href="products.html#honey">Mật ong nguyên chất</a></li>
+                        <li><a href="products.html#wax">Nến sáp ong</a></li>
+                        <li><a href="products.html#royal">Sữa ong chúa</a></li>
+                        <li><a href="products.html#pollen">Phấn hoa ong</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="ft-h">LIÊN HỆ</h3>
+                    <ul class="ft-links">
+                        <li>📞 <a href="tel:0909123456">0909 123 456</a></li>
+                        <li>✉️ <a href="mailto:contact@beeshop.com">contact@beeshop.com</a></li>
+                        <li>📍 <a href="index.html#contact">Q1, Q7, Thủ Đức</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ft-copy">© 2025 Bee Shop. All rights reserved. • Powered by <a href="#">Bee Shop Team</a></div>
+        </div>
+    </footer>
+
+
+    <button id="backTop" aria-label="Back to top"></button>
+
+    <script>
+        /* ===== Reveal on scroll ===== */
+        const io = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } }) }, { threshold: .15 });
+        document.querySelectorAll('.reveal-io').forEach(el => io.observe(el));
+
+        /* ===== Scroll–spy + click with sticky offset ===== */
+        const subLinks = [...document.querySelectorAll('#subnav a')];
+        const secs = subLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+        const spy = new IntersectionObserver(es => {
+            es.forEach(e => {
+                if (e.isIntersecting) {
+                    const id = '#' + e.target.id;
+                    subLinks.forEach(a => a.classList.toggle('current', a.getAttribute('href') === id));
+                }
+            });
+        }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+        secs.forEach(s => spy.observe(s));
+
+        function offsetY() { const h = document.querySelector('.header'); const s = document.querySelector('.subnav'); return (h?.offsetHeight || 0) + (s?.offsetHeight || 0) + 8; }
+        function scrollToHash(hash, smooth = true) {
+            const el = document.querySelector(hash); if (!el) return;
+            const y = Math.max(el.getBoundingClientRect().top + window.scrollY - offsetY(), 0);
+            window.scrollTo({ top: y, behavior: smooth ? 'smooth' : 'auto' });
+            history.replaceState(null, '', hash);
+        }
+        subLinks.forEach(a => {
+            a.addEventListener('click', e => {
+                const href = a.getAttribute('href') || '';
+                if (href.startsWith('#')) { e.preventDefault(); scrollToHash(href, true); }
+            });
+        });
+        if (location.hash) { setTimeout(() => scrollToHash(location.hash, false), 0); }
+
+        /* ===== Filter chips + search ===== */
+        const tabs = [...document.querySelectorAll('.seg [data-region]')];
+        const cards = [...document.querySelectorAll('.branch')];
+        const kw = document.getElementById('kw');
+        let region = 'all', keyword = '';
+        function applyFilter() {
+            const k = (keyword || '').toLowerCase().trim();
+            cards.forEach(c => {
+                const okRegion = (region === 'all' || c.dataset.region === region);
+                const okKw = !k || (c.dataset.keywords || '').includes(k);
+                c.style.display = (okRegion && okKw) ? 'grid' : 'none';
+            });
+        }
+        tabs.forEach(b => {
+            b.addEventListener('click', () => {
+                tabs.forEach(x => x.classList.remove('active')); b.classList.add('active');
+                region = b.dataset.region; applyFilter();
+                // khi đổi tab, cuộn đến list
+                scrollToHash('#list');
+            });
+        });
+        kw.addEventListener('input', e => { keyword = e.target.value; applyFilter(); });
+
+        // Deep-link filter: #q1 #q7 #td
+        const hash = location.hash.replace('#', '');
+        if (['q1', 'q7', 'td'].includes(hash)) {
+            const btn = document.querySelector(`.seg [data-region="${hash}"]`);
+            if (btn) { btn.click(); }
+        }
+
+        /* ===== Map switcher ===== */
+        const mapFrame = document.getElementById('mapFrame');
+        const mapTitle = document.getElementById('mapTitle');
+        const mapAddr = document.getElementById('mapAddr');
+        const maps = {
+            'map-q1': { src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.451!2d106.700!3d10.776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3fb94b!2zUXVhbiAxLCBIQ00!5e0!3m2!1svi!2s!4v1700000000000', title: 'Bee Shop — Quận 1', addr: '123 Ong Vàng, Q1 • 9:00–20:30' },
+            'map-q7': { src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.984!2d106.721!3d10.737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fff%3A0xabc!2sPhu%20My%20Hung!5e0!3m2!1svi!2s!4v1700000000001', title: 'Bee Shop — Quận 7', addr: '45 Honey Park, Q7 • 9:00–20:30' },
+            'map-td': { src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.200!2d106.806!3d10.870!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d8f9%3A0xabc!2sThu%20Duc!5e0!3m2!1svi!2s!4v1700000000002', title: 'Bee Shop — TP. Thủ Đức', addr: '88 Bee Street, TP. Thủ Đức • 9:00–20:30' }
+        };
+        document.querySelectorAll('.goto').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const m = maps[btn.dataset.map]; if (!m) return;
+                mapFrame.src = m.src; mapTitle.textContent = m.title; mapAddr.textContent = m.addr;
+                if (window.innerWidth < 1100) { scrollToHash('#list'); }
+            });
+        });
+
+        /* ===== Mở/Đóng theo giờ local ===== */
+        function toMinutes(hhmm) { const [h, m] = hhmm.split(':').map(Number); return h * 60 + (m || 0); }
+        function updateStatus() {
+            const now = new Date(); const cur = now.getHours() * 60 + now.getMinutes();
+            cards.forEach(c => {
+                const open = toMinutes(c.dataset.open || '9:00');
+                const close = toMinutes(c.dataset.close || '20:30');
+                const el = c.querySelector('[data-status]');
+                const isOpen = cur >= open && cur <= close;
+                el.className = 'status ' + (isOpen ? 'open' : 'closed');
+                el.textContent = isOpen ? 'Mở cửa' : 'Đóng cửa';
+            });
+        }
+        updateStatus(); setInterval(updateStatus, 60 * 1000);
+
+        /* ===== Accordion ===== */
+        document.querySelectorAll('.acc-btn').forEach(b => {
+            b.addEventListener('click', () => {
+                const p = b.nextElementSibling, open = p.style.maxHeight;
+                document.querySelectorAll('.acc-panel').forEach(x => x.style.maxHeight = null);
+                p.style.maxHeight = open ? null : (p.scrollHeight + 'px');
+            });
+        });
+
+        /* ===== Back to top ===== */
+        const backTop = document.getElementById('backTop');
+        window.addEventListener('scroll', () => { backTop.style.display = window.scrollY > 600 ? 'inline-flex' : 'none'; });
+        backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+</html>
