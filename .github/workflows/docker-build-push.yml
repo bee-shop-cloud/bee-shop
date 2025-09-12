@@ -43,7 +43,7 @@ jobs:
           username: ${{ secrets.AZURE_USER }}
           password: ${{ secrets.AZURE_PASSWORD }}
           script: |
-            docker stop beeshop-container || true
-            docker rm beeshop-container || true
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/beeshop-web:latest
-            docker run -d -p 80:80 --name beeshop-container ${{ secrets.DOCKERHUB_USERNAME }}/beeshop-web:latest
+            sudo docker stop beeshop-container || true
+            sudo docker rm beeshop-container || true
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/beeshop-web:latest
+            sudo docker run -d -p 80:80 --name beeshop-container ${{ secrets.DOCKERHUB_USERNAME }}/beeshop-web:latest
