@@ -2,8 +2,8 @@ name: CI/CD - Build & Deploy
 
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch:
+    branches: [ "main" ]  
+  workflow_dispatch:     
 
 jobs:
   build-and-push:
@@ -24,7 +24,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: ./WebBeeShop
+          context: ./WebBeeShop        
           file: ./WebBeeShop/Dockerfile
           push: true
           tags: |
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-and-push
     steps:
-      # 4. Deploy to Azure VM using docker-compose
+      # 4. Deploy to Azure VM qua SSH
       - name: Deploy to Azure VM
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -44,6 +44,12 @@ jobs:
           password: ${{ secrets.AZURE_PASSWORD }}
           script: |
             cd ~/beeshop
+
+            # stop container cũ
             sudo docker-compose down
+
+            # pull image mới nhất từ Docker Hub
             sudo docker-compose pull
+
+            # chạy lại toàn bộ services (app + nginx + certbot)
             sudo docker-compose up -d
